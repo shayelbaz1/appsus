@@ -10,6 +10,7 @@ export default {
             <div class="flex">
               <notes-filter @filter="setFilter"></notes-filter>
               <add-note></add-note>
+              
             </div>
             <notes-list :notes="notesToShow"></notes-list>
         </section>
