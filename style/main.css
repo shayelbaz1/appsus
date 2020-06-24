@@ -16,3 +16,7 @@
 
 @import "./apps/books/cmps/about-page.css";
 @import "./apps/books/cmps/add-book.css";
+
+
+/* MAILS CMPS */
+@import "./apps/mail/cmps/email-filter.css";
