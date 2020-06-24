@@ -7,7 +7,8 @@ import addBook from './apps/miss-book/pages/add-book.cmp.js'
 import bookMain from './apps/miss-book/cmps/book-main.cmp.js'
 import emailApp from './apps/email/pages/email-app.cmp.js'
 import notesApp from './apps/keep/pages/notes-app.cmp.js'
-import emailDetails from './apps/email/cmps/email-details.cmp.js'
+// import emailDetails from './apps/email/cmps/email-details.cmp.js'
+import emailList from './apps/email/cmps/email-list.cmp.js'
 
 
 const ourServices = {
@@ -29,9 +30,13 @@ const myRoutes = [
     component: emailApp,
     children: [
       {
-        path: "/details/:emailId",
-        component: emailDetails,
-      }
+        path: "list",
+        component: emailList,
+      },
+      // {
+      //   path: "/details/:emailId",
+      //   component: emailDetails,
+      // }
     ]
   },
   {

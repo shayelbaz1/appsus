@@ -1,4 +1,6 @@
 import { emailService } from '../services/email.service.js'
+import {eventBusService} from '../../../main-services/event-bus.service.js'
+
 
 export default {
   props:['email'],  
@@ -16,7 +18,8 @@ export default {
   `,
   methods: {
     onDelMsg(emailId) {
-      emailService.deleteMsgById(emailId) 
+      emailService.deleteMsgById(emailId)
+      eventBusService.$emit('delOccured', true) 
     },
     // setSelectedBook(selectedBook) {
     //   this.selectedBook = selectedBook;
