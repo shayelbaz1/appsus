@@ -2,6 +2,8 @@ import { notesService } from "../services/notes.service.js";
 import notesList from "../cmps/notes-list.cmp.js";
 import notesFilter from "../cmps/notes-filter.cmp.js";
 import addNote from "../cmps/add-note.cmp.js";
+import addImg from "../cmps/add-img.cmp.js";
+import addTodos from "../cmps/add-todos.cmp.js";
 
 export default {
   name: 'notes-app',
@@ -10,6 +12,8 @@ export default {
             <div class="flex">
               <notes-filter @filter="setFilter"></notes-filter>
               <add-note></add-note>
+              <add-img></add-img>
+              <add-todos></add-todos>
             </div>
             <notes-list :notes="notesToShow"></notes-list>
         </section>
@@ -19,7 +23,9 @@ export default {
   components: {
     notesFilter,
     notesList,
-    addNote
+    addNote,
+    addImg,
+    addTodos
   },
   data() {
     return {
