@@ -1,15 +1,31 @@
 .notes-list {
     /* background-color: lightpink; */
-    column-count: 3;
+    column-count: 4;
     /* column-gap: 1.5rem; */
     /* column-width: auto; */
     width: 100vw;
     padding: 10px;
+    text-align: center;
 }
 
-@media (max-width:520px) {
+@media (max-width:1200px) {
     .notes-list {
-        background-color: lightpink;
+        column-count: 3;
+        /* column-gap: 1.5rem; */
+        /* column-width: auto; */
+    }
+}
+
+@media (max-width:870px) {
+    .notes-list {
+        column-count: 2;
+        /* column-gap: 1.5rem; */
+        /* column-width: auto; */
+    }
+}
+
+@media (max-width:570px) {
+    .notes-list {
         column-count: 1;
         /* column-gap: 1.5rem; */
         /* column-width: auto; */
