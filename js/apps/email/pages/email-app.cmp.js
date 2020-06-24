@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { emailService } from "../services/email.service.js";
-=======
-// import { booksService } from "../services/books.service.js";
->>>>>>> b316d68ce8bb6a6950f0ad00d273315124b1de44
 
 
 import emailList from "../cmps/email-list.cmp.js";
