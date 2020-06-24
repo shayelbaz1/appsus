@@ -14,7 +14,6 @@ export default {
   },
   methods: {
     addNote() {
-      console.log('txt:', this.txt)
       notesService.addNote(this.txt)
       this.txt = null
     }

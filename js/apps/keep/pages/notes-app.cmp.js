@@ -33,7 +33,6 @@ export default {
     notesToShow() {
       const filterBy = this.filterBy;
       if (!filterBy.title) {
-        console.log('here')
         
         return this.notes
       };

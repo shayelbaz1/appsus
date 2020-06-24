@@ -9,7 +9,7 @@ export default {
   props: ["notes"],
   template: `
         <ul class="notes-list clean-list">
-            <li class="note-card" v-for="note in notes" :key="note.id" :style="note.style">
+            <li class="note-card" v-for="(note,idx) in notes" :key="note.id" :style="note.style">
               <component :is="note.type" :info="note.info"></component>
               <div>
                 <div @click="deleteNote(note.id)" class="note-card-delete">
