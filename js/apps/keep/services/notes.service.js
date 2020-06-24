@@ -369,11 +369,120 @@ var gJsonBooks = [
   },
 ];
 
-var gBooks = createBooks();
-var gGoogleBooks = null
+var dynamicNotes = [
+  {
+    type: "NoteText",
+    isPinned: true,
+    info: { txt: "Fullstack Me Baby!" }
+  },
+  {
+    type: "NoteImg",
+    info: {
+      url: "http://some-img/me",
+      title: "Me playing Mi"
+    }, style: {
+      backgroundColor: "#00d"
+    }
+  }, {
+    type: "NoteTodos",
+    info: {
+      label: "How was it:",
+      todos: [{
+        txt: "Do that",
+        doneAt: null
+      }, {
+          txt: "Do this",
+          doneAt: 187111111
+        }]
+    }
+  }
+];
 
-export const booksService = {
-  createBooks,
+var gInitNotes = [
+  {
+    id: "c101",
+    title: "First Note",
+    bodyText: "metus hendrerit",
+  },
+  {
+    id: "c102",
+    title: "second Note",
+    bodyText: 'Lorem ipsum dolor sit.'
+  },
+  {
+    id: "c103",
+    title: "Third Note",
+    bodyText: "Note 3 body text",
+  },
+  {
+    id: "c104",
+    title: "Third Note",
+    bodyText: "Note 3 body text",
+  },
+  {
+    id: "c105",
+    title: "Third Note",
+    bodyText: "Note 3 body text",
+  },
+  {
+    id: "c106",
+    title: "Third Note",
+    bodyText: "Note 3 body text",
+  },
+  {
+    id: "c107",
+    title: "Third Note",
+    bodyText: "Note 3 body text",
+  },
+  {
+    id: "c108",
+    title: "Third Note",
+    bodyText: "Note 3 body text",
+  },
+  {
+    id: "c109",
+    title: "Third Note",
+    bodyText: "Note 3 body text",
+  },
+  {
+    id: "c110",
+    title: "Third Note",
+    bodyText: "Note 3 body text",
+  },
+  {
+    id: "c111",
+    title: "Third Note",
+    bodyText: "Note 3 body text",
+  },
+  {
+    id: "c112",
+    title: "Third Note",
+    bodyText: "Note 3 body text",
+  },
+  {
+    id: "c113",
+    title: "Third Note",
+    bodyText: "Note 3 body text",
+  },
+  {
+    id: "c114",
+    title: "Third Note",
+    bodyText: "Note 3 body text",
+  },
+  {
+    id: "c115",
+    title: "Third Note",
+    bodyText: "Note 3 body text",
+  },
+]
+
+var gNotes = createNotes();
+
+
+export const notesService = {
+  getNotes,
+  addNote,
+  deleteNote,
   getBooks,
   getById,
   addReview,
@@ -384,7 +493,48 @@ export const booksService = {
   addBook,
   findBooks
 };
+function deleteNote(noteId) {
+  const idx = gNotes.findIndex(note => {
+    return note.id === noteId
+  })
+  console.log('idx:', idx)
+  gNotes.splice(idx, 1)
+  utils.storeToStorage('notes',gNotes)
+  
+}
 
+function addNote(newBodyText,newTitle = 'title') {
+  var newNote = 
+  {
+    id: utils.getRandomId(),
+    title: newTitle,
+    bodyText: newBodyText,
+  }
+  gNotes.unshift(newNote)
+  utils.storeToStorage('notes',gNotes)
+}
+
+function createNotes() {
+  const notes = utils.loadFromStorage("notes");
+  if (notes) return notes;
+  else {
+    utils.storeToStorage("notes", gInitNotes);
+    return gInitNotes;
+  }
+}
+
+function getNotes() {
+  return Promise.resolve(gNotes)
+}
+
+
+
+
+
+
+
+
+// ----------------------------------
 function addBook(googleBook) {
   console.log('googleBook:', googleBook)
   const convertedBook = {
