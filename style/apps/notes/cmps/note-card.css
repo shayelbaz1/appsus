@@ -1,10 +1,11 @@
 .note-card {
     background-color: white;
     padding: 20px 20px 10px;
-    width: 230px;
-    width: -webkit-fill-available;
+    width: 261px;
+    /* width: fit-content; */
+    /* width: -webkit-fill-available; */
     display: inline-block;
-    margin: 0 1.2rem 1.5rem;
+    margin: 0 0 1.2rem;
     border-width: 2px;
     border-style: solid;
     border-color: transparent;
@@ -20,7 +21,7 @@
 }
 
 .note-card-delete {
-    background-color: white;
+    /* background-color: white; */
     border-radius: 50%;
     border: none;
     width: 25px;
@@ -31,6 +32,11 @@
     float: right;
 }
 
+.note-card-delete i {
+    padding-block-start: 4px;
+    padding-inline-start: 5px;
+}
+
 .note-card-delete:hover {
     /* background-color: palevioletred; */
     color: red;
@@ -38,5 +44,6 @@
 }
 
 .note-card-delete:active {
+    color: black;
     box-shadow: none;
 }

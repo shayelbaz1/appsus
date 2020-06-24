@@ -10,7 +10,6 @@ export default {
             <div class="flex">
               <notes-filter @filter="setFilter"></notes-filter>
               <add-note></add-note>
-              
             </div>
             <notes-list :notes="notesToShow"></notes-list>
         </section>
@@ -33,13 +32,24 @@ export default {
   computed: {
     notesToShow() {
       const filterBy = this.filterBy;
-      if (!filterBy) return this.notes;
+      if (!filterBy.title) {
+        console.log('here')
+        
+        return this.notes
+      };
 
       var filteredNotes = this.notes
         .filter((note) => {
-          return note.title
+          if (note.type === 'noteTxt') {
+            return note.info.txt
             .toLowerCase()
             .includes(filterBy.title.toLowerCase());
+          }
+          if (note.type === 'noteTodos') {
+            return note.info.label
+            .toLowerCase()
+            .includes(filterBy.title.toLowerCase());
+          }
         })
 
       return filteredNotes;

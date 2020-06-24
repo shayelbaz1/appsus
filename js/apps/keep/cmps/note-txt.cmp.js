@@ -1,9 +1,9 @@
 export default {
     name: 'note-txt',
-    props:["txt"],
+    props:["info"],
     template: `
       <section class="note-txt">
-            {{txt}}
+            {{info.txt}}
       </section>
       `,
   };

@@ -6,9 +6,12 @@
 @import "./home-page.css";
 /*#region NOTES CMPS */
 
-@import "./apps/notes/cmps/note-card.css";
-@import "./apps/notes/cmps/notes-list.css";
 @import "./apps/notes/cmps/notes-app.css";
+@import "./apps/notes/cmps/notes-list.css";
+@import "./apps/notes/cmps/note-card.css";
+@import "./apps/notes/cmps/note-img.css";
+@import "./apps/notes/cmps/note-todos.css";
+@import "./apps/notes/cmps/note-video.css";
 /*#endregion NOTES */
 
 /*BOOKS CMPS */

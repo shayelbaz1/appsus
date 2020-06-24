@@ -369,22 +369,38 @@ var gJsonBooks = [
   },
 ];
 
-var dynamicNotes = [
+var gDynamicNotes = [
   {
-    type: "NoteText",
+    type: "noteTxt",
     isPinned: true,
     info: { txt: "Fullstack Me Baby!" }
   },
   {
-    type: "NoteImg",
+    type: "noteTxt",
+    isPinned: true,
+    info: { txt: "Backend Me Baby!" }
+  },
+  {
+    type: "noteImg",
     info: {
-      url: "http://some-img/me",
-      title: "Me playing Mi"
+      url: "https://html.com/wp-content/uploads/flamingo.jpg",
+      title: "Flamingo"
     }, style: {
-      backgroundColor: "#00d"
+      backgroundColor: "#f4ff89"
     }
-  }, {
-    type: "NoteTodos",
+  },
+  {
+    type: "noteVideo",
+    info: {
+      // url: "https://www.youtube.com/embed/VugasBUoBdI",
+      url: "https://www.youtube.com/embed/tgbNymZ7vqY",
+      title: "Dynamic"
+    }, style: {
+      backgroundColor: "#white"
+    }
+  },
+  {
+    type: "noteTodos",
     info: {
       label: "How was it:",
       todos: [{
@@ -518,8 +534,8 @@ function createNotes() {
   const notes = utils.loadFromStorage("notes");
   if (notes) return notes;
   else {
-    utils.storeToStorage("notes", gInitNotes);
-    return gInitNotes;
+    utils.storeToStorage("notes", gDynamicNotes);
+    return gDynamicNotes;
   }
 }
 
