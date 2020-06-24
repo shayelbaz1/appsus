@@ -1,0 +1,21 @@
+/*#region BOOK-FILTER  */
+
+.book-filter {
+    /* background-color: blueviolet; */
+    margin-bottom: 20px;
+}
+
+input {
+    font-size: 0.8rem;
+    padding: 6px;
+    font-family: tahoma;
+    letter-spacing: 1px;
+    width: 180px;
+    border: none;
+    box-shadow: 1px 1px 1px 1px lightgrey;
+    border-radius: 5px;
+    /* outline: none; */
+    margin: 10px;
+}
+
+/*#endregion BOOK-FILTER  */

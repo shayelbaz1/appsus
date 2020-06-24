@@ -1,0 +1,16 @@
+/* .book-preview {
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 7px;
+  background-color: white;
+  margin-bottom: 10px;
+} */
+.book-preview {
+  border: 1px solid white;
+    padding: 10px;
+    border-radius: 7px;
+    background-color: white;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 320px;
+}

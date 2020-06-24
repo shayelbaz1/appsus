@@ -1,0 +1,12 @@
+.review-add {
+    background-color: bisque;
+}
+
+.stars-container i:first-of-type {
+    margin-inline-start: .5rem;
+}
+
+.stars-container i {
+    cursor: pointer;
+    color: #e4bb24;
+}

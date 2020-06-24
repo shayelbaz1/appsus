@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    background-color: #edf6ff;
+    font-family: Tahoma, Verdana, Geneva, sans-serif;
+}
+
+img {
+    width: 160px;
+    padding-bottom: 10px;
+}
+
+header {
+    background-color: rgb(143, 143, 143);
+    padding: 0px 10px;
+    color: white;
+    letter-spacing: 1px;
+    font-weight: 000;
+}
+
+h1{
+    margin: 0;
+}
