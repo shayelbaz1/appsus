@@ -17,7 +17,7 @@ new Vue({
               </div>
           </router-link>  
           <nav>
-            <router-link to="/email">eMail | </router-link>
+            <router-link to="/email/list">eMail | </router-link>
             <router-link to="/notes">Notes |</router-link>
             <router-link to="/book-app">Books</router-link>
             <!-- <router-link to="/book-main">Book main |</router-link> -->
