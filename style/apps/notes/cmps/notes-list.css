@@ -1,0 +1,17 @@
+.notes-list {
+    /* background-color: lightpink; */
+    column-count: 3;
+    /* column-gap: 1.5rem; */
+    /* column-width: auto; */
+    width: 100vw;
+    padding: 10px;
+}
+
+@media (max-width:520px) {
+    .notes-list {
+        background-color: lightpink;
+        column-count: 1;
+        /* column-gap: 1.5rem; */
+        /* column-width: auto; */
+    }
+}
