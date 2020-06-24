@@ -1,18 +1,16 @@
 import { emailService } from "../services/email.service.js";
-import emailFilter from "../cmps/email-filter.cmp.js"
 
 
 export default {
   template: `
-  <section class='flex column'>
-     <email-filter></email-filter>
-     <h2>Email Details</h2>
-  </section>
-       
-      `,
-  components: {
-    emailFilter
-  },
+      <div class='flex justify-center'>
+        <section class='details-container flex column'>
+          <h2 class='subject-info'>Subject: {{email.subject}}</h2>
+          <h3>Sender: {{email.sender}}</h3>
+          <p>Body: {{email.body}}</p>
+        </section>  
+      </div> 
+  `,
   data() {
     return {
       email: null,
@@ -33,8 +31,8 @@ export default {
   methods: {
     async loadCurrEmail() {
      const { emailId } = this.$route.params;
-     let book = await emailService.getEmailById(emailId)
-     this.book = book
+     let email = await emailService.getEmailById(emailId)
+     this.email = email
     }
   },
 };

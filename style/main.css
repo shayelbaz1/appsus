@@ -30,3 +30,9 @@
 
 /* MAILS CMPS */
 @import "./apps/mail/cmps/email-filter.css";
+@import "./apps/mail/cmps/email-details.css";
+@import "./apps/mail/cmps/email-compose.css";
+@import "./apps/mail/cmps/side-bar.css";
+@import "./apps/mail/cmps/email-preview.css";
+
+

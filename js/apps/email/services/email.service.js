@@ -1,12 +1,17 @@
+import {utils} from '../../../services/utils.service.js'
 export const emailService = {
   getEmails,
   getStaredMessages,
   setMsgStarById,
   deleteMsgById,
-  getEmailById
+  getEmailById,
+  sendEmail,
+  addMsgToDraft,
+  getDelMsgs
 }
 
 var gEmails = _createEmails()
+var gDelMsgs = []
 
 function getEmails() {
   return Promise.resolve(gEmails)
@@ -15,13 +20,16 @@ function getEmails() {
 function _createEmails() {
   let emails = [
     {
-      id: 'csdcdds4',
+      id: utils.getRandomId(),
       sender: 'shai',
       subject: 'hi dan how are you?',
       body: 'yo man hows it hanging!!!!',
       isRead: false,
       sentAt: 2121121212,
       isStared: false,
+      isDraft: false,
+      senderEmail: 'xxxxx@gmail.com',
+      toEmail: 'ggggg@gmail.com'
     },
     {
       id: 'csdcdsd3',
@@ -31,42 +39,57 @@ function _createEmails() {
       isRead: false,
       sentAt: 2124321212,
       isStared: false,
+      isDraft: false,
+      senderEmail: 'xxxxx@gmail.com',
+      toEmail: 'ggggg@gmail.com'
     },
     {
-      id: 'cdscss2',
+      id: utils.getRandomId(),
       sender: 'rotem',
       subject: 'hi avi how are you?',
       body: 'just the twov of us!!!!',
       isRead: false,
       sentAt: 344333,
       isStared: false,
+      isDraft: false,
+      senderEmail: 'xxxxx@gmail.com',
+      toEmail: 'ggggg@gmail.com'
     },
     {
-      id: 'dcscdssd3',
+      id: utils.getRandomId(),
       sender: 'shmuel',
       subject: 'hi ron how are you?',
       body: 'sos help them!!!!',
       isRead: false,
       sentAt: 65566565,
       isStared: false,
+      isDraft: false,
+      senderEmail: 'xxxxx@gmail.com',
+      toEmail: 'ggggg@gmail.com'
     },
     {
-      id: 'cscsdcds67',
+      id: utils.getRandomId(),
       sender: 'diana',
       subject: 'hi dani how are you?',
       body: 'sos help you!!!!',
       isRead: false,
       sentAt: 4545445,
       isStared: false,
+      isDraft: false,
+      senderEmail: 'xxxxx@gmail.com',
+      toEmail: 'ggggg@gmail.com'
     },
     {
-      id: 'cdcdscd56',
+      id: utils.getRandomId(),
       sender: 'sharon',
       subject: 'hi chen how are you?',
       body: 'sos help us!!!!',
-      isRead: false,
+      isRead: true,
       sentAt: 545454,
       isStared: false,
+      isDraft: false,
+      senderEmail: 'xxxxx@gmail.com',
+      toEmail: 'ggggg@gmail.com'
     },
   ]
   return emails
@@ -77,6 +100,13 @@ function createEmail() {
 }
 
 function sendEmail(email) {
+  email.id = utils.getRandomId()
+  gEmails.push(email)
+}
+
+function addMsgToDraft(email){
+  email.id = utils.getRandomId()
+  email.isDraft = true
   gEmails.push(email)
 }
 
@@ -91,7 +121,12 @@ function deleteMsgById(msgId) {
   let msgIdx = gEmails.findIndex((email) => {
     return email.id === msgId
   })
-  gEmails.splice(msgIdx, 1)
+  let deletedMsg = gEmails.splice(msgIdx, 1)
+  gDelMsgs.push(deletedMsg)
+}
+
+function getDelMsgs() {
+  return Promise.resolve(gDelMsgs)
 }
 
 function getEmailById(msgId) {
@@ -101,5 +136,5 @@ function getEmailById(msgId) {
 }
 
 function getStaredMessages() {
-  return (staredMsgs = gEmails.filter((email) => email.isStared))
+  return gEmails.filter((email) => email.isStared)
 }

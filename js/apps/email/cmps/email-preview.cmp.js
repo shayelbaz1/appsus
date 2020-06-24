@@ -3,9 +3,9 @@ import bigPreview from './big-preview.cmp.js'
 export default {
   props: ['email'],
   template: `
-    <div>
+    <div class='preview-container'>
       <li class="email-preview flex justify-center space-between" @click="isShowBigPreview = true">
-          <i class="fa fa-star-o" style="font-size:25px" @click='onStarClicked(email.id)'></i>
+          <i class="fa fa-star-o" style="font-size:25px" @click.stop='onStarClicked(email.id)'></i>
           <span>Sender: {{email.sender}}</span>
           <span>Subject: {{email.subject}}</span>
           <span>{{formatedDate}}</span>
@@ -17,15 +17,13 @@ export default {
   components: {bigPreview},
   data() {
     return {
-      starClass: {
-        'fa fa-star': false,
-        'fa fa-star-o': true,
-      },
+      // currPreviewedEmail: email,
       isShowBigPreview: false,
     }
   },
   methods: {
     onStarClicked(emailId) {
+      console.log(emailId);
       emailService.setMsgStarById(emailId)
       this.isStared = true
     },
@@ -56,9 +54,7 @@ export default {
     },
   },
   // starClass: function () {
-  //   return {
-  //     'fa fa-star': this.email.isStared,
-  //     'fa fa-star-o': !this.email.isStared,
-  //   }
+  //   let starClass = this.currPreviewedEmail.isStared ? 'fa fa-star' : 'fa fa-star-o' 
+  //   return starClass
   // },
 }
