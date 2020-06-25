@@ -30,13 +30,15 @@ export default {
           isRead: false,
           sentAt: Date.now(),
           isStared: false,
-          isDraft: false
+          isDraft: false,
+          isSent: false
         }    
     }
 
   },
   methods: {
     onSendMail() {
+      debugger
       emailService.sendEmail(this.msgData)
       this.$router.push('/email/list')
     },

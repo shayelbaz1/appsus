@@ -13,6 +13,8 @@ import emailCompose from './apps/email/cmps/email-compose.cmp.js'
 import emailListStarred from './apps/email/cmps/stared-list.cmp.js'
 import emailListDeleted from './apps/email/cmps/deleted-list.cmp.js'
 import emailListDraft from './apps/email/cmps/draft-list.cmp.js'
+import emailListSent from './apps/email/cmps/sent-list.cmp.js'
+
 
 
 const ourServices = {
@@ -56,6 +58,10 @@ const myRoutes = [
       {
         path: "draft",
         component: emailListDraft,
+      },
+      {
+        path: "sent",
+        component: emailListSent,
       }
     ]
   },

@@ -10,7 +10,8 @@ export const emailService = {
   getDelMsgs,
   openEnvelope,
   setStarClass,
-  getDraftEmails
+  getDraftEmails,
+  getSentEmails
 }
 
 var gEmails = _createEmails()
@@ -34,7 +35,8 @@ function _createEmails() {
       senderEmail: 'xxxxx@gmail.com',
       toEmail: 'ggggg@gmail.com',
       envelopeClass: 'fa fa-envelope',
-      starClass: 'fa fa-star-o'
+      starClass: 'fa fa-star-o',
+      isSent: false
     },
     {
       id: 'csdcdsd3',
@@ -48,7 +50,8 @@ function _createEmails() {
       senderEmail: 'xxxxx@gmail.com',
       toEmail: 'ggggg@gmail.com',
       envelopeClass: 'fa fa-envelope',
-      starClass: 'fa fa-star-o'
+      starClass: 'fa fa-star-o',
+      isSent: false
     },
     {
       id: utils.getRandomId(),
@@ -62,7 +65,8 @@ function _createEmails() {
       senderEmail: 'xxxxx@gmail.com',
       toEmail: 'ggggg@gmail.com',
       envelopeClass: 'fa fa-envelope',
-      starClass: 'fa fa-star-o'
+      starClass: 'fa fa-star-o',
+      isSent: false
     },
     {
       id: utils.getRandomId(),
@@ -76,7 +80,8 @@ function _createEmails() {
       senderEmail: 'xxxxx@gmail.com',
       toEmail: 'ggggg@gmail.com',
       envelopeClass: 'fa fa-envelope',
-      starClass: 'fa fa-star-o'
+      starClass: 'fa fa-star-o',
+      isSent: false
     },
     {
       id: utils.getRandomId(),
@@ -90,7 +95,8 @@ function _createEmails() {
       senderEmail: 'xxxxx@gmail.com',
       toEmail: 'ggggg@gmail.com',
       envelopeClass: 'fa fa-envelope',
-      starClass: 'fa fa-star-o'
+      starClass: 'fa fa-star-o',
+      isSent: true
     },
     {
       id: utils.getRandomId(),
@@ -104,7 +110,8 @@ function _createEmails() {
       senderEmail: 'xxxxx@gmail.com',
       toEmail: 'ggggg@gmail.com',
       envelopeClass: 'fa fa-envelope',
-      starClass: 'fa fa-star-o'
+      starClass: 'fa fa-star-o',
+      isSent: false
     },
   ]
   return emails
@@ -114,6 +121,10 @@ function _createEmails() {
 //   console.log('created')
 // }
 
+function getSentEmails(){
+  return gEmails.filter((email) => email.isSent)
+}
+
 function openEnvelope(msgId){
   let msg = getEmailById(msgId)
   msg.isRead = true
@@ -122,6 +133,7 @@ function openEnvelope(msgId){
 
 function sendEmail(email) {
   email.id = utils.getRandomId()
+  email.isSent = true
   gEmails.push(email)
 }
 
