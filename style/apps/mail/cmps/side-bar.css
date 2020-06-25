@@ -1,0 +1,15 @@
+.side-bar {
+  border: 2px solid black;
+  padding: 10px;
+  background-color: lightgray;
+}
+
+.side-bar i {
+  color: black;
+  font-size: 33px;
+}
+
+.side-links {
+  text-decoration: none;
+  width: 100%;
+}

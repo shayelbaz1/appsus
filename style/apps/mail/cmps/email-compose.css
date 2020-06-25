@@ -1,0 +1,19 @@
+
+.compose-container{
+    width: 72%;
+    height: 90%;
+    border: 2px solid black;
+    background-color: white;
+}
+
+.compose-container input {
+    box-shadow: none;
+} 
+
+.compose-container textarea {
+  height: 104px;
+} 
+
+.compose-header {
+  border-bottom: 2px solid black;  
+}

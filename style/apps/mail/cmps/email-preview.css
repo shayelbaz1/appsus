@@ -1,0 +1,12 @@
+.preview-container {
+    width: 100%;
+    border: 1px solid black
+}  
+
+.email-preview {
+    padding: 20px
+}
+
+.txt-preview {
+    width: 100%;
+}    
