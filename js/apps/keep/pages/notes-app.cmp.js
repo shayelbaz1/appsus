@@ -9,11 +9,26 @@ export default {
   name: 'notes-app',
   template: `
         <section class="notes-app column-layout">
-            <div class="flex">
-              <notes-filter @filter="setFilter"></notes-filter>
-              <add-note></add-note>
-              <add-img></add-img>
-              <add-todos></add-todos>
+            <div class="flex add-notes-box ">
+              <section class="notes-add flex wrap space-between">
+
+                <div class="inputs">
+                  <notes-filter v-if="currIcon === 'search'" @filter="setFilter"></notes-filter>
+                  <add-todos v-if="currIcon === 'list'"></add-todos>
+                  <add-note v-if="currIcon === 'font'"></add-note>
+                  <add-img v-if="currIcon === 'image'"></add-img>
+                </div>
+
+                <div  class="type-list-btns flex">
+                  <div  v-for="icon in iconList">
+                    <input hidden @click="setCurrIcon(icon)"  type="radio" :id="icon" name="noteType" :value="icon">
+                      <label :title="icon" :for="icon" :class="{active:currIcon === icon}" >
+                        <i :class="iconClass(icon)"></i>
+                      </label>
+                  </div>
+                </div>
+
+              </section>
             </div>
             <notes-list :notes="notesToShow"></notes-list>
         </section>
@@ -29,7 +44,9 @@ export default {
   },
   data() {
     return {
+      iconList:['search','font','image','youtube','list'],
       notes: [],
+      currIcon: 'font',
       filterBy: {
         title: "",
       },
@@ -61,6 +78,16 @@ export default {
     },
   },
   methods: {
+    iconClass(icon) {
+      if (icon === 'font'||icon==='list') return 'fas fa-' + icon + ' fa-lg'
+      if (icon === 'image') return 'far fa-' + icon + ' fa-lg'
+      if (icon === 'youtube') return 'fab fa-' + icon + ' fa-lg'
+      if (icon === 'search') return 'fa fa-' + icon + ' fa-lg'
+      
+    },
+    setCurrIcon(value){
+      this.currIcon = value
+    },
     setFilter(filterBy) {
       this.filterBy = filterBy;
     },

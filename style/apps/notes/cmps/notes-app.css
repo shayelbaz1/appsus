@@ -6,3 +6,32 @@
     /* column-gap: 1.5rem; */
     /* column-width: auto; */
 }
+
+.inputs {
+    width: 100%;
+}
+
+.notes-add {
+    background-color: #fff;
+    align-items: center;
+    justify-content: space-between;
+    width: 450px;
+}
+
+.notes-add i {
+    color: #ccc;
+    transition: 0.3s;
+}
+
+.active i {
+    color: black;
+    transform: scale(1.1)
+}
+
+.notes-add i:hover {
+    color: black
+}
+
+/* input[type="radio"] {
+    visibility: hidden;
+} */
