@@ -10,8 +10,12 @@ export default {
         <span>Sender: {{email.sender}}</span>
         <div class='preview-icons flex '>
           <i @click='onDelMsg(email.id)' class="fa fa-trash" aria-hidden="true"></i>
-          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-          <router-link :to="'details/' + email.id"><i class="fa fa-window-maximize" aria-hidden="true"></i></router-link>
+          <router-link :to="'compose/' + email.id">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          </router-link>  
+          <router-link :to="'/email/details/' + email.id">
+            <i class="fa fa-window-maximize" aria-hidden="true"></i>
+          </router-link>
         </div>
         <p>{{email.body}}</p>
     </div>

@@ -4,12 +4,16 @@ export default {
   props: ['email'],
   template: `
     <div class='preview-container'>
-      <li class="email-preview flex justify-center space-between" @click="isShowBigPreview = true">
-          <i class="fa fa-star-o" style="font-size:25px" @click.stop='onStarClicked(email.id)'></i>
-          <span>Sender: {{email.sender}}</span>
-          <span>Subject: {{email.subject}}</span>
-          <span>{{formatedDate}}</span>
-          <i class="fa fa-envelope" aria-hidden="true"></i>
+      <li class="email-preview flex justify-center space-between" @click="onShowPreviewClick(email.id)">
+          <i v-bind:class="this.currEmail.starClass" style="font-size:25px" @click.stop='onStarClicked(email.id)'></i>
+          <div class='txt-preview flex'>
+            <span>Sender: {{email.sender}}  </span>
+            <span>Subject: {{email.subject}}</span>
+          </div>
+          <div class='date-preview flex'>
+            <span>{{formatedDate}}</span>
+            <i v-bind:class="this.currEmail.envelopeClass" aria-hidden="true"></i>
+          </div>
       </li>
       <big-preview v-if='isShowBigPreview' :email='email'></big-preview>
     </div>
@@ -17,16 +21,24 @@ export default {
   components: {bigPreview},
   data() {
     return {
-      // currPreviewedEmail: email,
+      currEmail: this.email,
       isShowBigPreview: false,
+      isStarred: false
     }
   },
   methods: {
     onStarClicked(emailId) {
-      console.log(emailId);
+      //fa fa-star-o
       emailService.setMsgStarById(emailId)
-      this.isStared = true
+      this.isStarred = !this.isStarred
+      emailService.setMsgStarById(emailId, this.isStarred)
+      emailService.setStarClass(emailId, this.isStarred)
     },
+    onShowPreviewClick(emailId){
+      this.isShowBigPreview = !this.isShowBigPreview
+      if(this.currEmail.isRead) return
+      emailService.openEnvelope(emailId)
+    }
     // setSelectedBook(selectedBook) {
     //   this.selectedBook = selectedBook;
     // }
@@ -38,7 +50,6 @@ export default {
     formatedDate() {
       var currentdate = new Date(this.email.sentAt)
       var datetime =
-        'Last Sync: ' +
         currentdate.getDate() +
         '/' +
         (currentdate.getMonth() + 1) +
@@ -53,8 +64,4 @@ export default {
       return datetime
     },
   },
-  // starClass: function () {
-  //   let starClass = this.currPreviewedEmail.isStared ? 'fa fa-star' : 'fa fa-star-o' 
-  //   return starClass
-  // },
 }

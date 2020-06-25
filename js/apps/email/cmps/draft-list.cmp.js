@@ -21,8 +21,7 @@ export default {
     emailPreview,
   },
   async created(){
-    debugger
-    let emails = await emailService.getDelMsgs();
+    let emails = await emailService.getDraftEmails();
     this.emails = emails
     eventBusService.$on('filterdEmails', (emails)=>{
       console.log(emails);

@@ -7,7 +7,10 @@ export const emailService = {
   getEmailById,
   sendEmail,
   addMsgToDraft,
-  getDelMsgs
+  getDelMsgs,
+  openEnvelope,
+  setStarClass,
+  getDraftEmails
 }
 
 var gEmails = _createEmails()
@@ -29,7 +32,9 @@ function _createEmails() {
       isStared: false,
       isDraft: false,
       senderEmail: 'xxxxx@gmail.com',
-      toEmail: 'ggggg@gmail.com'
+      toEmail: 'ggggg@gmail.com',
+      envelopeClass: 'fa fa-envelope',
+      starClass: 'fa fa-star-o'
     },
     {
       id: 'csdcdsd3',
@@ -41,7 +46,9 @@ function _createEmails() {
       isStared: false,
       isDraft: false,
       senderEmail: 'xxxxx@gmail.com',
-      toEmail: 'ggggg@gmail.com'
+      toEmail: 'ggggg@gmail.com',
+      envelopeClass: 'fa fa-envelope',
+      starClass: 'fa fa-star-o'
     },
     {
       id: utils.getRandomId(),
@@ -53,7 +60,9 @@ function _createEmails() {
       isStared: false,
       isDraft: false,
       senderEmail: 'xxxxx@gmail.com',
-      toEmail: 'ggggg@gmail.com'
+      toEmail: 'ggggg@gmail.com',
+      envelopeClass: 'fa fa-envelope',
+      starClass: 'fa fa-star-o'
     },
     {
       id: utils.getRandomId(),
@@ -65,7 +74,9 @@ function _createEmails() {
       isStared: false,
       isDraft: false,
       senderEmail: 'xxxxx@gmail.com',
-      toEmail: 'ggggg@gmail.com'
+      toEmail: 'ggggg@gmail.com',
+      envelopeClass: 'fa fa-envelope',
+      starClass: 'fa fa-star-o'
     },
     {
       id: utils.getRandomId(),
@@ -77,31 +88,45 @@ function _createEmails() {
       isStared: false,
       isDraft: false,
       senderEmail: 'xxxxx@gmail.com',
-      toEmail: 'ggggg@gmail.com'
+      toEmail: 'ggggg@gmail.com',
+      envelopeClass: 'fa fa-envelope',
+      starClass: 'fa fa-star-o'
     },
     {
       id: utils.getRandomId(),
       sender: 'sharon',
       subject: 'hi chen how are you?',
       body: 'sos help us!!!!',
-      isRead: true,
+      isRead: false,
       sentAt: 545454,
       isStared: false,
       isDraft: false,
       senderEmail: 'xxxxx@gmail.com',
-      toEmail: 'ggggg@gmail.com'
+      toEmail: 'ggggg@gmail.com',
+      envelopeClass: 'fa fa-envelope',
+      starClass: 'fa fa-star-o'
     },
   ]
   return emails
 }
 
-function createEmail() {
-  console.log('created')
+// function createEmail() {
+//   console.log('created')
+// }
+
+function openEnvelope(msgId){
+  let msg = getEmailById(msgId)
+  msg.isRead = true
+  msg.envelopeClass = 'fa fa-envelope-open'
 }
 
 function sendEmail(email) {
   email.id = utils.getRandomId()
   gEmails.push(email)
+}
+
+function getDraftEmails(){
+  return gEmails.filter((email) => email.isDraft)
 }
 
 function addMsgToDraft(email){
@@ -110,11 +135,14 @@ function addMsgToDraft(email){
   gEmails.push(email)
 }
 
-function setMsgStarById(msgId) {
-  let msg = gEmails.find((email) => {
-    return email.id === msgId
-  })
-  msg.isStared = true
+function setMsgStarById(msgId, isStarred) {
+  let msg = getEmailById(msgId)
+  msg.isStared = isStarred
+}
+
+function setStarClass(msgId, isStarred){
+  let msg = getEmailById(msgId)
+  msg.starClass = isStarred ? 'fa fa-star' : 'fa fa-star-o'
 }
 
 function deleteMsgById(msgId) {
@@ -122,7 +150,7 @@ function deleteMsgById(msgId) {
     return email.id === msgId
   })
   let deletedMsg = gEmails.splice(msgIdx, 1)
-  gDelMsgs.push(deletedMsg)
+  gDelMsgs.push(deletedMsg[0])
 }
 
 function getDelMsgs() {

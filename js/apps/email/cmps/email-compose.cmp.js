@@ -33,6 +33,7 @@ export default {
           isDraft: false
         }    
     }
+
   },
   methods: {
     onSendMail() {
@@ -41,7 +42,11 @@ export default {
     },
     onSaveDraft(){
       emailService.addMsgToDraft(this.msgData)
-      this.$router.push('/email/list')
+      this.$router.push('/email/draft')
     }
+  },
+  created: function () {
+    const { emailId } = this.$route.params
+    if(emailId) this.msgData = emailService.getEmailById(emailId)
   }
 }

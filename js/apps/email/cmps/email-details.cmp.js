@@ -6,7 +6,7 @@ export default {
       <div class='flex justify-center'>
         <section class='details-container flex column'>
           <h2 class='subject-info'>Subject: {{email.subject}}</h2>
-          <h3>Sender: {{email.sender}}</h3>
+          <h3>  Sender: {{email.sender}}</h3>
           <p>Body: {{email.body}}</p>
         </section>  
       </div> 

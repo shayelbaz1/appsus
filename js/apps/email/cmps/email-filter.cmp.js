@@ -3,7 +3,7 @@ export default {
     <section class="book-filter flex align-center justify-center">
         <div class='compose-btn'>
           <router-link to="compose">
-            <img src='./imgs/compose.png'/>
+            <img src='../imgs/compose.png'/>
             <span>Compose</span>
           </router-link>
         </div>
