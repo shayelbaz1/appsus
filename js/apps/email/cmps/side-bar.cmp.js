@@ -1,3 +1,6 @@
+import { emailService } from '../services/email.service.js'
+import { eventBusService } from '../../../main-services/event-bus.service.js'
+
 export default {
   template: `
     <section class='side-bar flex column align-center'>
@@ -21,6 +24,19 @@ export default {
           <i class="fa fa-trash" aria-hidden="true"></i>
           <h2>Deleted</h2>
        </router-link>
+       <p>You have {{numOfUnreadMsgs}} unread emails</p>
     </section>
-  `   
+  `,
+  data(){
+    return {numOfUnreadMsgs: emailService.getUnreadMails().length}
+  },
+  methods: {
+   updateUnreadEmailsNum() {
+      let numOfUnreadMails = emailService.getUnreadMails().length
+      this.numOfUnreadMsgs = numOfUnreadMails
+    },
+  },
+  created() {
+    eventBusService.$on('readEmail', this.updateUnreadEmailsNum)
+  },
 }

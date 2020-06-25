@@ -10,6 +10,10 @@
     box-shadow: none;
 } 
 
+.compose-container textarea {
+  height: 104px;
+} 
+
 .compose-header {
   border-bottom: 2px solid black;  
 }

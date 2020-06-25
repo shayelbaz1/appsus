@@ -1,5 +1,6 @@
 import { emailService } from '../services/email.service.js'
 import bigPreview from './big-preview.cmp.js'
+import { eventBusService } from '../../../main-services/event-bus.service.js'
 export default {
   props: ['email'],
   template: `
@@ -38,6 +39,7 @@ export default {
       this.isShowBigPreview = !this.isShowBigPreview
       if(this.currEmail.isRead) return
       emailService.openEnvelope(emailId)
+      eventBusService.$emit('readEmail', true)
     }
     // setSelectedBook(selectedBook) {
     //   this.selectedBook = selectedBook;

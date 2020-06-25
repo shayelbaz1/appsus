@@ -11,7 +11,8 @@ export const emailService = {
   openEnvelope,
   setStarClass,
   getDraftEmails,
-  getSentEmails
+  getSentEmails,
+  getUnreadMails
 }
 
 var gEmails = _createEmails()
@@ -129,6 +130,10 @@ function openEnvelope(msgId){
   let msg = getEmailById(msgId)
   msg.isRead = true
   msg.envelopeClass = 'fa fa-envelope-open'
+}
+
+function getUnreadMails(){
+  return gEmails.filter((email) => !email.isRead)
 }
 
 function sendEmail(email) {
