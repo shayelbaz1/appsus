@@ -1,12 +1,6 @@
 export default {
   template: `
     <section class="email-filter flex align-center space-evenly">
-        <div class='compose-btn flex justify-center align-center'>
-          <router-link to="/email/compose/" >
-            <i class="fa fa-plus" aria-hidden="true"></i>
-            <span>Compose</span>
-          </router-link>
-        </div>
         <div class='flex'>
           <div class='filter-container flex'>
             <input type="text" placeHolder="Search Email" v-model="filterBy.subject" @input="filter"/>

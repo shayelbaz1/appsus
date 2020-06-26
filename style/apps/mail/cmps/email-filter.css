@@ -2,24 +2,6 @@
     margin-top: 10px;
 }
 
-.compose-btn {
-    background-color: whitesmoke;
-    border: 2px solid black;
-    border-radius: 20px;
-    width: 10rem;
-    height: 2.5rem;
-    padding: 3px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    box-shadow: 1px 5px 6px -5px black;
-    cursor: pointer;  
-}
-
-.compose-btn a {
-   text-decoration: none; 
-}
-
 .sort-container {
     width: 40%;
 }

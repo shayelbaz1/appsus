@@ -5,22 +5,26 @@ import emailList from "../cmps/email-list.cmp.js";
 import emailFilter from "../cmps/email-filter.cmp.js";
 import sideBar from "../cmps/side-bar.cmp.js"
 import {eventBusService} from '../../../main-services/event-bus.service.js'
+import noEmailsBanner from '../cmps/no-emails-banner.cmp.js'
+
 
 
 export default {
   template: `
-    <div>
+    <div class='email-app'>
       <email-filter @filter='setFilter' @sort='onSort'></email-filter>
       <div class='main-content flex space-between'>
         <side-bar></side-bar>
         <router-view></router-view>
+        <no-emails-banner v-if='!isThereEmails' :listType='listType'></no-emails-banner>
       </div>
     </div>
     `,
   components: {
     emailFilter,
     emailList,
-    sideBar
+    sideBar,
+    noEmailsBanner
   },
   data() {
     return {
@@ -44,6 +48,13 @@ export default {
       
       return filteredEmails;
     },
+    isThereEmails() {
+      return this.emails.length
+    },
+    listType(){
+      const { listType } = this.$route.params
+      return listType
+    }
   },
   methods: {
     setFilter(filterBy) {

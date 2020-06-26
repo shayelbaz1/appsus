@@ -4,6 +4,12 @@ import { eventBusService } from '../../../main-services/event-bus.service.js'
 export default {
   template: `
     <section class='side-bar flex column align-center'>
+       <div class='compose-btn flex'>
+         <router-link to="/email/compose/" >
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                  <span>Compose</span>
+         </router-link>  
+       </div>
        <router-link to='/email/list' class='side-links flex align-center'>
           <i class="fa fa-inbox" aria-hidden="true"></i>
           <h2>Inbox</h2>

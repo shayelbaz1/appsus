@@ -4,8 +4,13 @@
 }  
 
 .email-preview {
-    padding: 20px
+    padding: 20px;
+    cursor: pointer
 }
+
+.email-preview:hover {
+    background-color: #fce8e6;
+  }
 
 .txt-preview {
     width: 100%;
