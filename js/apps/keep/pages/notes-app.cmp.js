@@ -35,7 +35,6 @@ export default {
             </div>
 
             <notes-pinned :notes="pinnedNotes"></notes-pinned>
-            <!-- <notes-list :notes="pinnedNotes"></notes-list> -->
             <notes-list :notes="notesToShow"></notes-list>
         </section>
 
@@ -71,7 +70,6 @@ export default {
     notesToShow() {
       const filterBy = this.filterBy;
       if (!filterBy.title) {
-        
         return this.notes
       };
 
@@ -108,8 +106,8 @@ export default {
     }
   },
   created() {
-    notesService.getNotes().then((notes) => {
-      console.log('notes:', notes)
+    notesService.getNotes()
+      .then((notes) => {
       this.notes = notes;
     });
   },
