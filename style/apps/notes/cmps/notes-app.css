@@ -1,10 +1,7 @@
 .notes-app {
     background-color: #212125;
     padding: 10px;
-    /* height: 100vh; */
-    /* column-count: 3; */
-    /* column-gap: 1.5rem; */
-    /* column-width: auto; */
+    height: 100%;
 }
 
 /*#region ADD-BOX  */
