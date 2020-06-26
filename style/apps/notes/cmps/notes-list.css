@@ -31,3 +31,23 @@
         /* column-width: auto; */
     }
 }
+
+.notes-list .color-options {
+    /* background-color: hsl(0, 0%, 13%); */
+    position: absolute;
+    width: 226px;
+    margin-inline-start: -98px;
+    /* height: fit-content; */
+    margin-block-start: 5px;
+    height: 27px;
+    padding: 4px 0px 0px 0px;
+    /* border: 1px solid white;*/
+}
+
+.notes-list .color-options span {
+    /* width: 100px; */
+    /* height: 100px; */
+    padding: 2px 12px;
+    border-radius: 50%;
+    margin: 0px 2px;
+}

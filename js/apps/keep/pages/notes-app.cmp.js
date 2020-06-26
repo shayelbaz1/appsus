@@ -1,8 +1,10 @@
 import { notesService } from "../services/notes.service.js";
 import notesList from "../cmps/notes-list.cmp.js";
+import notesPinned from "../cmps/notes-pinned.cmp.js";
 import notesFilter from "../cmps/notes-filter.cmp.js";
 import addNote from "../cmps/add-note.cmp.js";
 import addImg from "../cmps/add-img.cmp.js";
+import addVideo from "../cmps/add-video.cmp.js";
 import addTodos from "../cmps/add-todos.cmp.js";
 
 export default {
@@ -10,13 +12,14 @@ export default {
   template: `
         <section class="notes-app column-layout">
             <div class="flex add-notes-box ">
-              <section class="notes-add flex wrap space-between">
+              <section class="notes-add flex space-between">
 
                 <div class="inputs">
                   <notes-filter v-if="currIcon === 'search'" @filter="setFilter"></notes-filter>
                   <add-todos v-if="currIcon === 'list'"></add-todos>
                   <add-note v-if="currIcon === 'font'"></add-note>
                   <add-img v-if="currIcon === 'image'"></add-img>
+                  <add-video v-if="currIcon === 'youtube'"></add-video>
                 </div>
 
                 <div  class="type-list-btns flex">
@@ -30,6 +33,8 @@ export default {
 
               </section>
             </div>
+
+            <notes-pinned :notes="pinnedNotes"></notes-pinned>
             <notes-list :notes="notesToShow"></notes-list>
         </section>
 
@@ -38,9 +43,11 @@ export default {
   components: {
     notesFilter,
     notesList,
+    notesPinned,
     addNote,
     addImg,
-    addTodos
+    addTodos,
+    addVideo
   },
   data() {
     return {
@@ -53,6 +60,13 @@ export default {
     };
   },
   computed: {
+    pinnedNotes() {
+      var pinnedNotes = this.notes
+        .filter(note => {
+        return note.isPinned === true
+        })
+      return pinnedNotes
+    },
     notesToShow() {
       const filterBy = this.filterBy;
       if (!filterBy.title) {
@@ -90,13 +104,7 @@ export default {
     },
     setFilter(filterBy) {
       this.filterBy = filterBy;
-    },
-    // setSelectedBook(selectedBook) {
-    //   this.selectedBook = selectedBook;
-    // },
-    // setCurrBook() {
-    //   this.selectedBook = null;
-    // },
+    }
   },
   created() {
     notesService.getNotes().then((notes) => {

@@ -47,3 +47,30 @@
     color: black;
     box-shadow: none;
 }
+
+/*#region Note Card Buttons */
+
+/* .note-card .type-list-btns {
+    visibility: hidden;
+} */
+
+.note-card .type-list-btns i {
+    color: #ccc
+}
+
+.note-card .type-list-btns i:hover {
+    color: black
+}
+
+/* .note-card .type-list-btns .active i:hover {
+    color: red;
+} */
+
+.note-card:hover .type-list-btns {
+    visibility: visible;
+}
+
+.marked {
+    /* border: 3px solid white; */
+    background-color: yellow !important;
+}
