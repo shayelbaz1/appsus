@@ -5,32 +5,49 @@ import {eventBusService} from '../../../main-services/event-bus.service.js'
 
 
 export default {
-  props: ["filterdEmails"],
+  // props: ["filterdEmails"],
+  name: 'emailList',
   template: `
-        <ul class="email-list clean-list flex wrap align-center space-around column">
+        <ul class="email-list clean-list flex wrap align-center flex-start column">
           <email-preview v-for='email in emails' :email='email' :key='email.id'>
           </email-preview>
         </ul>
     `,
   data(){
     return {
-      emails: []
+      emails: [],
     }
   },  
   components: {
     emailPreview,
   },
   async created(){
-    let emails = await emailService.getEmails();
-    this.emails = emails
+    // console.log('email list created!')
     eventBusService.$on('filterdEmails', (emails)=>{
-      console.log(emails);
       this.emails = emails
+      console.log('got filterd emails:', emails)
     })
-    eventBusService.$on('delOccured', async (val)=>{
-      console.log(val);
+    eventBusService.$on('delOccured', async ()=>{
       let emails = await emailService.getEmails()
       this.emails = emails
+      // console.log('emails:', emails)
     })
-  }
+    eventBusService.$on('allEmails', async (emails)=>{
+      this.emails = emails
+      console.log('got all emails:', emails)
+    })
+    eventBusService.$on('routeChanged', (emails)=>{
+      this.emails = emails
+      console.log('got typed emails:', emails)
+    })
+  },
+  // //on url change
+  // watch: {
+  //   async '$route.params.listType'(){
+  //     const { listType } = this.$route.params
+  //     console.log(listType);
+  //     let emails = await emailService.getEmailsByListType(listType);
+  //     this.emails = emails
+  //   }
+  // } 
 };

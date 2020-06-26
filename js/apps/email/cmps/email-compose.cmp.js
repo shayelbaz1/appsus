@@ -1,7 +1,7 @@
 import {emailService} from '../services/email.service.js'
-import { myRouter } from '../../../routes.js'
 
 export default {
+  name: 'compose',
   template: `
     <section class='compose-container flex column'>
       <h1 class='compose-header'>New Message</h1>
@@ -10,7 +10,7 @@ export default {
         <input type='text' placeholder='Subject' v-model='msgData.subject'>
         <input type='text' placeholder='enter your email' v-model='msgData.senderEmail'>
         <input type='text' placeholder='Send to' v-model='msgData.toEmail'>
-        <textarea placeholder='body' v-model='msgData.body'>
+        <textarea placeholder='Enter body text' v-model='msgData.body'>
         </textarea>
         <div class='compose-button-container flex space-between'>
           <button @click='onSendMail'>Send Mail</button>
@@ -38,7 +38,6 @@ export default {
   },
   methods: {
     onSendMail() {
-      debugger
       emailService.sendEmail(this.msgData)
       this.$router.push('/email/list')
     },
@@ -47,7 +46,8 @@ export default {
       this.$router.push('/email/draft')
     }
   },
-  created: function () {
+  created() {
+    console.log('created');
     const { emailId } = this.$route.params
     if(emailId) this.msgData = emailService.getEmailById(emailId)
   }

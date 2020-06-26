@@ -41,12 +41,6 @@ export default {
       emailService.openEnvelope(emailId)
       eventBusService.$emit('readEmail', true)
     }
-    // setSelectedBook(selectedBook) {
-    //   this.selectedBook = selectedBook;
-    // }
-    // setCurrBook() {
-    //   this.selectedBook = null;
-    // },
   },
   computed: {
     formatedDate() {

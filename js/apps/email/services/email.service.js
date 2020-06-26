@@ -1,4 +1,4 @@
-import {utils} from '../../../services/utils.service.js'
+import { utils } from '../../../services/utils.service.js'
 export const emailService = {
   getEmails,
   getStaredMessages,
@@ -12,7 +12,11 @@ export const emailService = {
   setStarClass,
   getDraftEmails,
   getSentEmails,
-  getUnreadMails
+  getUnreadMails,
+  getEmailsByListType,
+  sortBySubject,
+  sortByDate,
+  sortByType
 }
 
 var gEmails = _createEmails()
@@ -37,7 +41,7 @@ function _createEmails() {
       toEmail: 'ggggg@gmail.com',
       envelopeClass: 'fa fa-envelope',
       starClass: 'fa fa-star-o',
-      isSent: false
+      isSent: false,
     },
     {
       id: 'csdcdsd3',
@@ -52,7 +56,7 @@ function _createEmails() {
       toEmail: 'ggggg@gmail.com',
       envelopeClass: 'fa fa-envelope',
       starClass: 'fa fa-star-o',
-      isSent: false
+      isSent: false,
     },
     {
       id: utils.getRandomId(),
@@ -67,7 +71,7 @@ function _createEmails() {
       toEmail: 'ggggg@gmail.com',
       envelopeClass: 'fa fa-envelope',
       starClass: 'fa fa-star-o',
-      isSent: false
+      isSent: false,
     },
     {
       id: utils.getRandomId(),
@@ -75,14 +79,14 @@ function _createEmails() {
       subject: 'hi ron how are you?',
       body: 'sos help them!!!!',
       isRead: false,
-      sentAt: 65566565,
+      sentAt: 6556656576778,
       isStared: false,
       isDraft: false,
       senderEmail: 'xxxxx@gmail.com',
       toEmail: 'ggggg@gmail.com',
       envelopeClass: 'fa fa-envelope',
       starClass: 'fa fa-star-o',
-      isSent: false
+      isSent: false,
     },
     {
       id: utils.getRandomId(),
@@ -90,14 +94,14 @@ function _createEmails() {
       subject: 'hi dani how are you?',
       body: 'sos help you!!!!',
       isRead: false,
-      sentAt: 4545445,
+      sentAt: 454544588978,
       isStared: false,
       isDraft: false,
       senderEmail: 'xxxxx@gmail.com',
       toEmail: 'ggggg@gmail.com',
       envelopeClass: 'fa fa-envelope',
       starClass: 'fa fa-star-o',
-      isSent: true
+      isSent: true,
     },
     {
       id: utils.getRandomId(),
@@ -105,34 +109,74 @@ function _createEmails() {
       subject: 'hi chen how are you?',
       body: 'sos help us!!!!',
       isRead: false,
-      sentAt: 545454,
+      sentAt: 545454878987,
       isStared: false,
       isDraft: false,
       senderEmail: 'xxxxx@gmail.com',
       toEmail: 'ggggg@gmail.com',
       envelopeClass: 'fa fa-envelope',
       starClass: 'fa fa-star-o',
-      isSent: false
+      isSent: false,
     },
   ]
   return emails
 }
 
-// function createEmail() {
-//   console.log('created')
-// }
+function sortBySubject(){
+  gEmails.sort((firstEmail, secondEmail) => {
+    var subjA = firstEmail.subject.toUpperCase(); // ignore upper and lowercase
+    var subjB = secondEmail.subject.toUpperCase(); // ignore upper and lowercase
+    if (subjA < subjB) return -1;
+    if (subjA > subjB) return 1;
+    // names must be equal
+    return 0;
+  });
+}
 
-function getSentEmails(){
+function sortByType(sortType){
+  if (sortType === 'title') sortBySubject()
+  else sortByDate()
+}
+
+function sortByDate(){
+  gEmails.sort((firstEmail, secondEmail) => {
+    return new Date(firstEmail.sentAt) - new Date(secondEmail.sentAt);
+  });
+}
+
+function getEmailsByListType(listType) {
+  let emails
+  switch (listType) {
+    case 'starred':
+      emails = getStaredMessages()
+      break
+    case 'sent':
+      emails = getSentEmails()
+      break
+    case 'draft':
+      emails = getDraftEmails()
+      break
+    case 'deleted':
+      emails = getDelMsgs()
+      break
+    case 'list':
+      emails = getEmails()
+      break
+  }
+  return emails
+}
+
+function getSentEmails() {
   return gEmails.filter((email) => email.isSent)
 }
 
-function openEnvelope(msgId){
+function openEnvelope(msgId) {
   let msg = getEmailById(msgId)
   msg.isRead = true
   msg.envelopeClass = 'fa fa-envelope-open'
 }
 
-function getUnreadMails(){
+function getUnreadMails() {
   return gEmails.filter((email) => !email.isRead)
 }
 
@@ -142,11 +186,11 @@ function sendEmail(email) {
   gEmails.push(email)
 }
 
-function getDraftEmails(){
+function getDraftEmails() {
   return gEmails.filter((email) => email.isDraft)
 }
 
-function addMsgToDraft(email){
+function addMsgToDraft(email) {
   email.id = utils.getRandomId()
   email.isDraft = true
   gEmails.push(email)
@@ -157,7 +201,7 @@ function setMsgStarById(msgId, isStarred) {
   msg.isStared = isStarred
 }
 
-function setStarClass(msgId, isStarred){
+function setStarClass(msgId, isStarred) {
   let msg = getEmailById(msgId)
   msg.starClass = isStarred ? 'fa fa-star' : 'fa fa-star-o'
 }
