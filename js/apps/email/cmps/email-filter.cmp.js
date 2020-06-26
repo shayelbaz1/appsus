@@ -1,24 +1,26 @@
 export default {
   template: `
-    <section class="book-filter flex align-center justify-center">
-        <div class='compose-btn'>
-          <router-link to="compose">
-            <img src='../imgs/compose.png'/>
+    <section class="email-filter flex align-center space-evenly">
+        <div class='compose-btn flex justify-center align-center'>
+          <router-link to="/email/compose/" >
+            <i class="fa fa-plus" aria-hidden="true"></i>
             <span>Compose</span>
           </router-link>
         </div>
-        <div class='filter-container flex'>
-          <input type="text" placeHolder="Search Email" v-model="filterBy.subject" @input="filter"/>
-          <select v-model='filterBy.selected' @change="filter">
-            <option v-for='option in options' v-bind:value='option.value'>
-            {{option.text}}
-            </option>
-          </select>
-        </div>
-        <div class='sort-container flex align-center'>
-          <h5>Sort:</h5>
-          <span>Title</span>
-          <span>Date</span>
+        <div class='flex'>
+          <div class='filter-container flex'>
+            <input type="text" placeHolder="Search Email" v-model="filterBy.subject" @input="filter"/>
+            <select v-model='filterBy.selected' @change="filter">
+              <option v-for='option in options' v-bind:value='option.value'>
+              {{option.text}}
+              </option>
+            </select>
+          </div>
+          <div class='sort-container flex space-evenly align-center'>
+            <h5>Sort:</h5>
+            <span @click="setSortBy('title')">Title</span>
+            <span @click="setSortBy('date')">Date</span>
+          </div>
         </div>
     </section>
     `,
@@ -28,6 +30,7 @@ export default {
         subject: "",
         selected: "All"
       },
+      sortBy:'',
       options: [
         { text: 'All', value: 'All'},
         { text: 'Read', value: true},
@@ -36,8 +39,13 @@ export default {
     };
   },
   methods: {
+    setSortBy(sortBy){
+      console.log(sortBy);
+      this.sortBy = sortBy
+      this.$emit("sort", this.sortBy);
+    },
     filter() {
       this.$emit("filter", this.filterBy);
-    },
+    }
   },
 };

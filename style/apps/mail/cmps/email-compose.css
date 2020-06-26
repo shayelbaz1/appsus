@@ -7,13 +7,30 @@
 }
 
 .compose-container input {
+    width: 90%;
     box-shadow: none;
+    border: none !important;
+    border-color: transparent !important;
 } 
 
 .compose-container textarea {
   height: 104px;
+  border: none;
+  padding: 15px;
 } 
 
 .compose-header {
-  border-bottom: 2px solid black;  
+  border-bottom: 2px solid black;
+  padding: 16px;
+  background-color: darkgray;
+}
+
+.compose-button-container{
+  padding: 16px
+}
+
+.compose-button-container button{
+  border: 2px solid black;
+  background-color: whitesmoke;
+  padding: 18px;
 }

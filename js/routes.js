@@ -10,12 +10,6 @@ import notesApp from './apps/keep/pages/notes-app.cmp.js'
 import emailDetails from './apps/email/cmps/email-details.cmp.js'
 import emailList from './apps/email/cmps/email-list.cmp.js'
 import emailCompose from './apps/email/cmps/email-compose.cmp.js'
-import emailListStarred from './apps/email/cmps/stared-list.cmp.js'
-import emailListDeleted from './apps/email/cmps/deleted-list.cmp.js'
-import emailListDraft from './apps/email/cmps/draft-list.cmp.js'
-import emailListSent from './apps/email/cmps/sent-list.cmp.js'
-
-
 
 const ourServices = {
   template: `
@@ -36,33 +30,17 @@ const myRoutes = [
     component: emailApp,
     children: [
       {
-        path: "list",
+        path: "compose/:emailId?",
+        component: emailCompose,
+      },
+      {
+        path: ":listType",
         component: emailList,
       },
       {
         path: "details/:emailId",
         component: emailDetails,
       },
-      {
-        path: "compose/:emailId?",
-        component: emailCompose,
-      },
-      {
-        path: "starred",
-        component: emailListStarred,
-      },
-      {
-        path: "deleted",
-        component: emailListDeleted,
-      },
-      {
-        path: "draft",
-        component: emailListDraft,
-      },
-      {
-        path: "sent",
-        component: emailListSent,
-      }
     ]
   },
   {

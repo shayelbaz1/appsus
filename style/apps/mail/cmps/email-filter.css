@@ -1,5 +1,10 @@
+.email-filter {
+    margin-top: 10px;
+}
+
 .compose-btn {
-    background-color: #f08080;
+    background-color: whitesmoke;
+    border: 2px solid black;
     border-radius: 20px;
     width: 10rem;
     height: 2.5rem;
@@ -9,4 +14,12 @@
     justify-content: center;
     box-shadow: 1px 5px 6px -5px black;
     cursor: pointer;  
+}
+
+.compose-btn a {
+   text-decoration: none; 
+}
+
+.sort-container {
+    width: 40%;
 }

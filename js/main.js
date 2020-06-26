@@ -1,6 +1,8 @@
 import { myRouter } from "./routes.js";
 import showMsg from "./apps/miss-book/cmps/user-msg.cmp.js";
 import bookNav from "./apps/miss-book/cmps/book-nav.cmp.js";
+import {eventBusService} from "./main-services/event-bus.service.js"
+
 
 new Vue({
   el: "#App",

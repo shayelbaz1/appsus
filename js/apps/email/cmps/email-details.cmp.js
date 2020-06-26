@@ -19,15 +19,6 @@ export default {
   created() {
     this.loadCurrEmail()
   },
-  // watch: {
-  //   '$route.params.bookId'(newBookId,oldBookId){
-  //     // console.log('newBookId:', newBookId)
-  //     // console.log('oldBookId:', oldBookId)
-  //       this.loadCurrBook();
-  //   }
-  // } ,
-  computed: {
-  },
   methods: {
     async loadCurrEmail() {
      const { emailId } = this.$route.params;

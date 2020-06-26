@@ -10,8 +10,8 @@ import {eventBusService} from '../../../main-services/event-bus.service.js'
 export default {
   template: `
     <div>
-      <email-filter @filter='setFilter'></email-filter>
-      <div class='main-content flex space-around'>
+      <email-filter @filter='setFilter' @sort='onSort'></email-filter>
+      <div class='main-content flex space-between'>
         <side-bar></side-bar>
         <router-view></router-view>
       </div>
@@ -29,7 +29,7 @@ export default {
         subject: "",
         selected: 'unRead'
       },
-      sortBy: 'Title'
+      sortBy: ''
     };
   },
   computed: {
@@ -48,18 +48,28 @@ export default {
   methods: {
     setFilter(filterBy) {
       this.filterBy = filterBy;
+      // send filtered data to email list
+      // if filter eve fired
       eventBusService.$emit('filterdEmails', this.emailsToShow)
     },
-    // setSelectedBook(selectedBook) {
-    //   this.selectedBook = selectedBook;
-    // },
-    // setCurrBook() {
-    //   this.selectedBook = null;
-    // },
+    onSort(sortBy){
+      console.log(sortBy);
+      debugger
+      emailService.sortByType(sortBy)
+    }
   },
   async created() {
-    let emails = await emailService.getEmails()
-    console.log(emails);
-    this.emails = emails;
-  }
+    // on create send all mails to email list
+    this.emails = await emailService.getEmails()
+    eventBusService.$emit('allEmails', this.emails)
+  },
+  //on url change
+  watch: {
+    async '$route.params.listType'(){
+      const { listType } = this.$route.params
+      let emails = await emailService.getEmailsByListType(listType);
+      this.emails = emails
+      eventBusService.$emit('routeChanged', this.emails)
+    }
+  } 
 };
