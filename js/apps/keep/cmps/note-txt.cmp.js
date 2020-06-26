@@ -7,8 +7,8 @@ export default {
     props:['info','isEditMode','noteId'],
     template: `
       <section class="note-txt">
-        <div>{{noteTxt}}</div>
         <input v-if="isEditMode" type="text" v-model="noteTxt" @keyup.enter="saveEdit"/>
+        <div v-else @click="toggleEdit">{{noteTxt}}</div>
       </section>
       `,
   data() {
@@ -19,9 +19,12 @@ export default {
   methods: {
     saveEdit() {
       notesService.saveEdit(this.noteId, this.noteTxt, 'noteTxt')
-      this.isEditMode = false
-      notesService.setEditMode(this.noteId)
+      this.toggleEdit()
+    },
+    toggleEdit() {
+      notesService.toggleEdit(this.noteId)
     }
   },
+
   };
   

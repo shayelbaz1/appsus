@@ -86,20 +86,41 @@ export const notesService = {
   markNote,
   setColor,
   saveEdit,
-  setEditMode
+  toggleEdit,
+  cloneNote
 };
+function cloneNote(noteId) {
+  const idx = getNoteIndexById(noteId)
+  const oldNote = getNoteById(noteId)
 
-function setEditMode(noteId) {
+  let newNote = { ...oldNote }
+
+  newNote.id = utils.getRandomId()
+  
+  gNotes.splice(idx,0,newNote)
+  utils.storeToStorage('notes',gNotes)
+  
+}
+
+function getNoteIndexById(noteId) {
+  return gNotes.findIndex(note => {
+    return note.id === noteId
+  })
+}
+
+function toggleEdit(noteId) {
   let note = getNoteById(noteId)
   note.isEditMode = !note.isEditMode
   utils.storeToStorage('notes',gNotes)
 }
 
-function saveEdit(noteId, noteTxt,type) {
+function saveEdit(noteId, noteData,type) {
+  console.log('noteData:', noteData)
   let note = getNoteById(noteId)
-  if (type === 'noteTxt') {
-    note.info.txt = noteTxt
-  }else return
+  if (type === 'noteTxt') note.info.txt = noteData
+  if (type === 'noteImg' || type === 'noteVideo') note.info.url = noteData
+  if (type === 'noteTodos') note.info.todos = noteData
+  else return
   utils.storeToStorage('notes',gNotes)
 }
 function getNoteById(noteId) {
@@ -107,6 +128,7 @@ function getNoteById(noteId) {
     return note.id === noteId
   })
 }
+
 
 function setColor(noteId,color) {
   let note = getNoteById(noteId)

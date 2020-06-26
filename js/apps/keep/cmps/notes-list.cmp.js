@@ -13,7 +13,8 @@ export default {
             <li class="note-card" v-for="(note,idx) in notes" :key="note.id" :style="note.style" v-if="!note.isPinned" :class="{marked: note.isMarked}">
               
               <!-- NOTE CARD -->
-              <component :is="note.type" :info="note.info" :isEditMode="note.isEditMode" :noteId="note.id"></component>
+              <component :is="note.type" :info="note.info" 
+              :isEditMode="note.isEditMode" :noteId="note.id"></component>
               
               <!-- DELETE NOTE -->
               <div>
@@ -43,21 +44,15 @@ export default {
                   </div>
                 </div> 
                 <!-- EDIT NOTE -->
-                <div @click="editNote(note.id)" class="note-card-delete">
+                <div @click="toggleEdit(note.id)" class="note-card-delete">
                 <i class="fas fa-edit"></i>
                 </div> 
-
-              <!-- BTN BOX -->
-              <!-- <div  class="type-list-btns flex">
-                  <div  v-for="icon in iconList">
-                    <input hidden @click="setCurrIcon(icon),activeIcon(icon,note.id)"  type="radio" :id="icon" name="noteType" :value="icon">
-                      <label :title="icon" :for="icon" :class="{active:currIcon === icon}" >
-                        <i :class="iconClass(icon)"></i>
-                      </label>
-                  </div>
-                </div> -->
+                <!-- CLONE CLONE -->
+                <div @click="cloneNote(note.id)" class="note-card-delete">
+                <i class="fas fa-clone"></i>
+                </div> 
+                
               </div> 
-
             </li>
         </ul>
     `,
@@ -69,15 +64,15 @@ export default {
       newNotes: null,
       selectedNoteId: "",
       isShowColors: true,
-      isEditMode: false
+      // isEditMode: false
     };
   },
   methods: {
-    editNote(noteId) {
-      notesService.setEditMode(noteId)
-      // this.isEditMode = !this.isEditMode
-      // eventBusService.$emit('editMode',this.isEditMode)
-      // console.log('this.isEditMode:', this.isEditMode)
+    cloneNote(noteId){
+      notesService.cloneNote(noteId)
+    },
+    toggleEdit(noteId) {
+      notesService.toggleEdit(noteId)
     },
     setColor(noteId,color){
       notesService.setColor(noteId,color)
