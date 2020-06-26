@@ -10,19 +10,18 @@ new Vue({
   template: `
     <div>
 
-    <!-- TODO: Component -->
+    <!-- TODO: cmp -->
       <header class="flex align-center space-between">
         <router-link to="/">
             <div class="logo flex align-center">
                     <i class="fas fa-book-reader"></i>
                     <p>BOOKSTORE</p>
               </div>
-          </router-link>  
+          </router-link> 
           <nav>
             <router-link to="/email/list">eMail | </router-link>
             <router-link to="/notes">Notes |</router-link>
             <router-link to="/book-app">Books</router-link>
-            <!-- <router-link to="/book-main">Book main |</router-link> -->
           </nav>
       </header>
   

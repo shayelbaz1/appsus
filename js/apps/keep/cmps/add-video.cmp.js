@@ -1,24 +1,22 @@
 import { notesService } from "../services/notes.service.js";
 
 export default {
-  name: 'add-img',
+  name: 'add-video',
   template: `
-    <section class="add-img">
-    <!-- <input type="text" class="form-control empty" id="iconified" placeholder="&#xF002;"/> -->
-    <!-- <input type="text" placeholder="\uf03e Enter image URL" style="font-family:tahoma,FontAwesome" /> -->
+    <section class="add-video">
 
-        <input type="text" placeHolder='\uf03e Enter image URL' v-model="imgUrl" @keyup.enter="addImg" style="font-family:tahoma,FontAwesome"/>
+        <input type="text" placeHolder='\uf16a Enter video URL' v-model="vidUrl" @keyup.enter="addVideo" style="font-family:tahoma,FontAwesome"/>
     </section>
     `,
   data() {
     return {
-      imgUrl: null,
+      vidUrl: null,
     };
   },
   methods: {
-    addImg() {
-      notesService.addImg(this.imgUrl)
-      this.imgUrl = null
+    addVideo() {
+      notesService.addVideo(this.vidUrl)
+      this.vidUrl = null
     }
   },
 };

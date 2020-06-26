@@ -1,21 +1,47 @@
 .notes-app {
     background-color: #212125;
     padding: 10px;
-    height: 100vh;
-    /* column-count: 3; */
-    /* column-gap: 1.5rem; */
-    /* column-width: auto; */
+    height: 100%;
 }
 
-.inputs {
-    width: 100%;
+/*#region ADD-BOX  */
+
+@media only screen and (min-width: 900px) {
+    .add-notes-box {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .add-notes-box {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .add-notes-box {
+        width: 80%;
+    }
 }
 
 .notes-add {
     background-color: #fff;
     align-items: center;
     justify-content: space-between;
-    width: 450px;
+    width: 100%;
+    margin: auto;
+}
+
+.inputs {
+    width: 100%;
+}
+
+.inputs input {
+    width: 100%;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    font-size: 1.2rem;
 }
 
 .notes-add i {
@@ -32,6 +58,4 @@
     color: black
 }
 
-/* input[type="radio"] {
-    visibility: hidden;
-} */
+/*#endregion ADD-BOX  */

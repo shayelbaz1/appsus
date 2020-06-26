@@ -1,3 +1,16 @@
 .note-todos ul {
     padding-left: 15px;
 }
+
+.note-todos input {
+    margin: 0;
+}
+
+.todo-title {
+    text-align: center;
+}
+
+.todo-txt {
+    text-align: left;
+    margin-left: 10px;
+}
