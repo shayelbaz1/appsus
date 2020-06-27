@@ -5,7 +5,6 @@ import emailList from "../cmps/email-list.cmp.js";
 import emailFilter from "../cmps/email-filter.cmp.js";
 import sideBar from "../cmps/side-bar.cmp.js"
 import {eventBusService} from '../../../main-services/event-bus.service.js'
-import noEmailsBanner from '../cmps/no-emails-banner.cmp.js'
 
 
 
@@ -22,8 +21,7 @@ export default {
   components: {
     emailFilter,
     emailList,
-    sideBar,
-    noEmailsBanner
+    sideBar
   },
   data() {
     return {

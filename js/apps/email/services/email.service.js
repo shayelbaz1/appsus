@@ -9,6 +9,7 @@ export const emailService = {
   addMsgToDraft,
   openEnvelope,
   setStarClass,
+  getUnreadMails,
   getEmailsByListType,
   sortBySubject,
   sortByDate,
