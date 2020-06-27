@@ -35,6 +35,7 @@ export default {
             </div>
 
             <notes-pinned :notes="pinnedNotes"></notes-pinned>
+            <!-- <notes-pinned :notes="notesToShow"></notes-pinned> -->
             <notes-list :notes="notesToShow"></notes-list>
         </section>
 

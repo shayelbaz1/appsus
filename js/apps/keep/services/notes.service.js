@@ -5,10 +5,54 @@ var gDynamicNotes = [
   {
     id: utils.getRandomId(),
     type: "noteTxt",
-    isPinned: true,
+    isPinned: false,
     isMarked: false,
     isEditMode: false,
     info: { txt: "Fullstack Me Baby!" },
+    style: {
+      backgroundColor: "#white"
+    }
+  },
+  {
+    id: utils.getRandomId(),
+    type: "noteTxt",
+    isPinned: false,
+    isMarked: false,
+    isEditMode: false,
+    info: { txt: "WOW Me Baby!" },
+    style: {
+      backgroundColor: "#white"
+    }
+  },
+  {
+    id: utils.getRandomId(),
+    type: "noteTxt",
+    isPinned: false,
+    isMarked: false,
+    isEditMode: false,
+    info: { txt: "Yea Me Baby!" },
+    style: {
+      backgroundColor: "#white"
+    }
+  },
+  {
+    id: utils.getRandomId(),
+    type: "noteTxt",
+    isPinned: false,
+    isMarked: false,
+    isEditMode: false,
+    info: { txt: "Anoter Me Baby!" },
+    style: {
+      backgroundColor: "#white"
+    }
+  },
+  {
+    id: utils.getRandomId(),
+    type: "noteTxt",
+    isPinned: false,
+    isMarked: false,
+    isEditMode: false,
+    info: { txt: "Its Amazing Me Baby!" },
     style: {
       backgroundColor: "#white"
     }
@@ -97,7 +141,7 @@ function addNote(newTxt,type = 'noteTxt') {
   {
     id: utils.getRandomId(),
     type: type,
-    isPinned: true,
+    isPinned: false,
     isMarked: false,
     isEditMode: false,
     info: {

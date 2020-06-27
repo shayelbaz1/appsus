@@ -56,6 +56,11 @@ export default {
                 <div @click="cloneNote(note.id)" class="note-card-delete">
                 <i class="fas fa-clone"></i>
                 </div> 
+
+                <!-- CLONE SEND -->
+                <div @click="sendNote(note.id)" class="note-card-delete">
+                <i class="fas fa-send"></i>
+                </div> 
                 
               </div> 
             </li>
@@ -69,12 +74,22 @@ export default {
       newNotes: null,
       selectedNoteId: "",
       isShowColors: true,
-      // isEditMode: false
     };
   },
   created() {
   },
+  computed: {
+  },
   methods: {
+    sendNote(noteId) {
+      let note = notesService.getNoteById(noteId)
+      const noteSubject = this.convertedNoteSubject(note.type)
+      this.$router.replace(`email/compose/?subject=${noteSubject}&txt=${note.info.txt}`)
+    },
+    convertedNoteSubject(noteType) {
+      if (noteType === 'noteTxt') return 'Text Note' 
+      else return noteType
+    },
     cloneNote(noteId){
       notesService.cloneNote(noteId)
     },
