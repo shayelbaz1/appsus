@@ -19,6 +19,14 @@
     max-width: 450px;
 }
 
+
+@media (max-width: 750px){
+    .inner-container {
+        width: 100%;
+        flex-direction: column;
+    }    
+}
+
 .sort-container {
     height: 30px;
     width: 27%;
