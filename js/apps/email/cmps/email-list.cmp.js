@@ -8,10 +8,10 @@ export default {
   // props: ["filterdEmails"],
   name: 'emailList',
   template: `
-        <ul class="email-list clean-list flex wrap align-center flex-start column">
-          <email-preview v-for='email in emails' :email='email' :key='email.id'>
-          </email-preview>
-        </ul>
+          <ul v-if='isThereEmails' class="email-list clean-list flex wrap align-center flex-start column">
+            <email-preview v-for='email in emails' :email='email' :key='email.id'>
+            </email-preview>
+          </ul>
     `,
   data(){
     return {
@@ -41,13 +41,9 @@ export default {
       console.log('got typed emails:', emails)
     })
   },
-  // //on url change
-  // watch: {
-  //   async '$route.params.listType'(){
-  //     const { listType } = this.$route.params
-  //     console.log(listType);
-  //     let emails = await emailService.getEmailsByListType(listType);
-  //     this.emails = emails
-  //   }
-  // } 
+  computed: {
+    isThereEmails() {
+      return this.emails.length
+    },
+  },
 };

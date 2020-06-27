@@ -1,25 +1,17 @@
 .email-filter {
-    margin-top: 10px;
-}
-
-.compose-btn {
-    background-color: whitesmoke;
-    border: 2px solid black;
-    border-radius: 20px;
-    width: 10rem;
-    height: 2.5rem;
-    padding: 3px;
-    text-align: center;
     display: flex;
-    justify-content: center;
-    box-shadow: 1px 5px 6px -5px black;
-    cursor: pointer;  
-}
-
-.compose-btn a {
-   text-decoration: none; 
+    font-size: 1.0rem;
+    justify-content: flex-end;
+    width: 100%;
+    align-items: center;
+    padding: 11px;
+    max-width: 1150px;
 }
 
 .sort-container {
     width: 40%;
+}
+
+.filter-container input, select{
+  height: 20px
 }
