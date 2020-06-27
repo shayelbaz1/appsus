@@ -16,7 +16,7 @@ export default {
           <router-link :to="'/email/details/' + email.id">
             <i class="fa fa-window-maximize" aria-hidden="true" title='review full message'></i>
           </router-link>
-          <i class="fa fa-pencil-square-o" aria-hidden="true" title='save as note'></i>
+          <i @click='saveEmailAsNote' class="fa fa-sticky-note" aria-hidden="true" title='save as note'></i>
         </div>
         <p>{{email.body}}</p>
     </div>
@@ -26,11 +26,8 @@ export default {
       emailService.deleteMsgById(emailId)
       eventBusService.$emit('delOccured', true) 
     },
-    // setSelectedBook(selectedBook) {
-    //   this.selectedBook = selectedBook;
-    // }
-    // setCurrBook() {
-    //   this.selectedBook = null;
-    // },
+    saveEmailAsNote(){
+      this.$router.replace(`/notes/?title=${this.email.subject}&txt=${this.email.body}`)
+    }
   }
 }

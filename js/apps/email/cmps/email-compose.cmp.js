@@ -53,7 +53,7 @@ export default {
   created() {
     const note = this.$route.query
     this.msgData.body = note.txt
-    this.convertNoteTypeToSubj(note.type)
+    this.msgData.subject = note.subject
     const { emailId } = this.$route.params
     if(emailId) this.msgData = emailService.getEmailById(emailId)
   }
