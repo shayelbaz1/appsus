@@ -20,7 +20,7 @@ export default {
           </div>
           <div class='about-app-container flex column align-center'>
             <router-link to='/notes'>
-              <img src='../../img/keep.jpg'>
+              <img src='../../img/keep.png'>
             </router-link>
             <p>Create todo lists and remember thing todo with our beautiful note system</p>
           </div>
