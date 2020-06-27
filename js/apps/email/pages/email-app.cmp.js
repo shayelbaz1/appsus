@@ -15,7 +15,7 @@ export default {
       <email-filter @filter='setFilter' @sort='onSort'></email-filter>
       <div class='main-content flex space-between'>
         <side-bar></side-bar>
-        <router-view></router-view>
+          <router-view></router-view>   
         <no-emails-banner v-if='!isThereEmails' :listType='listType'></no-emails-banner>
       </div>
     </div>

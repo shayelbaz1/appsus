@@ -11,11 +11,15 @@ export default {
             </select>
           </div>
           <div class='sort-container flex space-evenly align-center'>
-            <h5>Sort:</h5>
-            <span @click="setSortBy('title')">Title</span>
-            <span @click="setSortBy('date')">Date</span>
+            <span class="filter-btn" @click="setSortBy('title')" title="Sort asc by title">
+            <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i>
+            </span>
+
+            <span class="filter-btn" @click="setSortBy('date')" title="Sort asc by date">
+            <i class="fa fa-sort-numeric-asc" aria-hidden="true"></i>
+            </span>
           </div>
-        </div>
+        
     </section>
     `,
   data() {

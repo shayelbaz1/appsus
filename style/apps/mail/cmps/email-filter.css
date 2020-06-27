@@ -1,29 +1,47 @@
 .email-filter {
     display: flex;
     font-size: 1.0rem;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
     width: 100%;
     align-items: center;
     padding: 11px;
-    max-width: 1150px;
+    /* max-width: 1150px; */
 }
 
 .inner-container {
     width: 47%;
-    justify-content: space-between;
-}    
+    justify-content: space-around;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 9px -3px black;
+    margin: auto;
+    max-width: 450px;
+}
 
 .sort-container {
     height: 30px;
-    width: 40%;
-    border: 1px solid black;
+    width: 27%;
+    /* border: 1px solid black; */
+    border-radius: 3px;
 }
 
 .sort-container span {
-    border-left: 1px solid black;
+    /* border-left: 1px solid black; */
     height: 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
 }
 
-.filter-container input, select{
-  height: 30px
+.filter-btn {
+    color: lightgray;
+    transition: 0.3s;
+}
+
+.filter-btn:hover {
+    color: black
+}
+
+.filter-container input, select {
+    height: 30px
 }

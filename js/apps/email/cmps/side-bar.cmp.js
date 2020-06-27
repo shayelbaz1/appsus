@@ -5,7 +5,7 @@ export default {
   template: `
     <section class='side-bar flex column align-center'>
        <div class='compose-btn flex'>
-         <router-link to="/email/compose/" >
+         <router-link to="/email/compose/" class="compose-group flex align-center" >
                   <i class="fa fa-plus" aria-hidden="true"></i>
                   <span>Compose</span>
          </router-link>  

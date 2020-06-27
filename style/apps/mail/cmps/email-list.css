@@ -1,8 +1,8 @@
 .email-list {
-  width: 70%;  
+  width: 100%;
 }
 
-@media (max-width: 750px){
+@media (max-width: 750px) {
   .email-list {
     width: 100%;
   }
