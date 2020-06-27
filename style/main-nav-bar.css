@@ -8,6 +8,8 @@ header {
     padding-bottom: 7px;
 }
 
+/*#region LOGO and TITLE  */
+
 /* LOGO */
 
 header img {
@@ -25,6 +27,15 @@ header .title {
     color: #1c54a4;
     /* text-shadow: 2px 2px 8px #cfcfcf; */
     text-shadow: 0 0 6px #fffbfb;
+    transition: 0.3s;
+}
+
+header .title:hover {
+    transform: scale(1.1);
+}
+
+.router-link-exact-active .title {
+    transform: scale(1.1);
 }
 
 header .router-link-active {
@@ -33,7 +44,9 @@ header .router-link-active {
     background-color: #00000000;
 }
 
-/* MAIN NAV */
+/*#endregion LOGO and TITLE  */
+
+/*#region MAIN NAV */
 
 .main-nav i {
     margin: 0;
@@ -71,4 +84,4 @@ header .router-link-active {
     text-shadow: 0 0 6px #fffbfb;
 }
 
-/* MAIN NAV */
+/*#endregion MAIN NAV */
