@@ -1,4 +1,5 @@
 import { utils } from "../../../services/utils.service.js"; 
+import {eventBusService} from '../../../main-services/event-bus.service.js'
 
 var gDynamicNotes = [
   {
@@ -87,8 +88,13 @@ export const notesService = {
   setColor,
   saveEdit,
   toggleEdit,
-  cloneNote
+  cloneNote,
+  sendNote
 };
+function sendNote(noteId) {
+  const currNote = getNoteById(noteId)
+  eventBusService.$emit('onSendNote', currNote)
+}
 function cloneNote(noteId) {
   const idx = getNoteIndexById(noteId)
   const oldNote = getNoteById(noteId)

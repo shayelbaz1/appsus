@@ -56,6 +56,11 @@ export default {
                 <div @click="cloneNote(note.id)" class="note-card-delete">
                 <i class="fas fa-clone"></i>
                 </div> 
+
+                <!-- CLONE SEND -->
+                <div @click="sendNote(note.id)" class="note-card-delete">
+                <i class="fas fa-send"></i>
+                </div> 
                 
               </div> 
             </li>
@@ -69,12 +74,14 @@ export default {
       newNotes: null,
       selectedNoteId: "",
       isShowColors: true,
-      // isEditMode: false
     };
   },
   created() {
   },
   methods: {
+    sendNote(noteId){
+      notesService.sendNote(noteId)
+    },
     cloneNote(noteId){
       notesService.cloneNote(noteId)
     },
