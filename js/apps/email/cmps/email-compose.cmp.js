@@ -48,7 +48,7 @@ export default {
     }
   },
   created() {
-    eventBusService.$on('onSendNote', function(note){console.log(note)})
+    eventBusService.$on('onSendNote', (note)=>{console.log(note)})
     console.log('created');
     const { emailId } = this.$route.params
     if(emailId) this.msgData = emailService.getEmailById(emailId)
