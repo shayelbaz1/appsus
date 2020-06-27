@@ -80,8 +80,8 @@ export default {
   },
   methods: {
     sendNote(noteId) {
-      notesService.sendNote(noteId)
-      this.$router.replace('email/compose/')
+      let note = notesService.getNoteById(noteId)
+      this.$router.replace(`email/compose/?txt=${note.info.txt}`)
     },
     cloneNote(noteId){
       notesService.cloneNote(noteId)

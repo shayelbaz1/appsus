@@ -89,12 +89,9 @@ export const notesService = {
   saveEdit,
   toggleEdit,
   cloneNote,
-  sendNote
+  getNoteById
 };
-function sendNote(noteId) {
-  const currNote = getNoteById(noteId)
-  eventBusService.$emit('onSendNote', currNote)
-}
+
 function cloneNote(noteId) {
   const idx = getNoteIndexById(noteId)
   const oldNote = getNoteById(noteId)
