@@ -79,8 +79,9 @@ export default {
   created() {
   },
   methods: {
-    sendNote(noteId){
+    sendNote(noteId) {
       notesService.sendNote(noteId)
+      this.$router.replace('email/compose/')
     },
     cloneNote(noteId){
       notesService.cloneNote(noteId)
