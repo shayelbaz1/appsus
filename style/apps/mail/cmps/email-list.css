@@ -5,7 +5,3 @@
 /* .email-list .preview-container:nth-child(even) {
   background-color: lightgray;
 } */
-
-.email-list .preview-container:nth-child(1) {
-  /* border-top: 3px solid #dbe0e2; */
-}
