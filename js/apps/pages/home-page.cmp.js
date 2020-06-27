@@ -7,19 +7,19 @@ export default {
 
         <main class='main-content-container flex'>
           <div class='about-app-container flex column align-center'>
-            <router-link to='/book-app'>
+            <router-link to='book-app'>
               <img src='img/books.png'>
             </router-link>
             <p>Learn about the history of the world and many more using our book services</p>
           </div>
           <div class='about-app-container flex column align-center'>
-            <router-link to='/email/list'>
+            <router-link to='email/list'>
               <img src='img/google-mail.jpg'>
             </router-link>
             <p>Use out top of the line email service system which is packed with features</p>
           </div>
           <div class='about-app-container flex column align-center'>
-            <router-link to='/notes'>
+            <router-link to='notes'>
               <img src='img/keep.png'>
             </router-link>
             <p>Create todo lists and remember thing todo with our beautiful note system</p>
