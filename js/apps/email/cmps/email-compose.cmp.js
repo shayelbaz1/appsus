@@ -45,25 +45,15 @@ export default {
     onSaveDraft(){
       emailService.addMsgToDraft(this.msgData)
       this.$router.push('/email/draft')
+    },
+    convertNoteTypeToSubj(type){
+     console.log(type);
     }
   },
   created() {
-    eventBusService.$on('onSendNote', (note)=>{
-      console.log(note.info.txt);
-      this.msgData = {
-        sender: '',
-        subject: '',
-        senderEmail: '',
-        toEmail: '',
-        body: note.info.txt,
-        isRead: false,
-        sentAt: Date.now(),
-        isStared: false,
-        isDraft: false,
-        isSent: false
-      }  
-    })
-    console.log('created');
+    const note = this.$route.query
+    this.msgData.body = note.txt
+    this.convertNoteTypeToSubj(note.type)
     const { emailId } = this.$route.params
     if(emailId) this.msgData = emailService.getEmailById(emailId)
   }
