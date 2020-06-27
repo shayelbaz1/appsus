@@ -1,7 +1,6 @@
 import { myRouter } from "./routes.js";
 import showMsg from "./apps/miss-book/cmps/user-msg.cmp.js";
 import bookNav from "./apps/miss-book/cmps/book-nav.cmp.js";
-import {eventBusService} from "./main-services/event-bus.service.js"
 
 
 new Vue({
@@ -20,18 +19,18 @@ new Vue({
           </router-link> 
           <nav class="main-nav flex">
 
-            <router-link to="/email/inbox/list">
+            <router-link to="/email/list">
                 <div class="app mail column-layout ">
                   <i class="fas fa-envelope fa-2x"></i>
-                 <p> eMail</p>
+                  <p> eMail</p>
                 </div>
             </router-link>
 
             <router-link to="/notes">
-            <div class="app notes column-layout ">
-            <i class="fa fa-sticky-note fa-2x"></i>
-            <p>notes</p>
-            </div>
+                <div class="app notes column-layout ">
+                  <i class="fa fa-sticky-note fa-2x"></i>
+                  <p>notes</p>
+                </div>
             </router-link>
 
             <router-link to="/book-app">

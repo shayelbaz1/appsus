@@ -41,11 +41,11 @@ export default {
     onSendMail() {
       // debugger
       emailService.sendEmail(this.msgData)
-      this.$router.push('/email/inbox/list')
+      this.$router.push('/email/list')
     },
     onSaveDraft(){
       emailService.addMsgToDraft(this.msgData)
-      this.$router.push('/email/inbox/list')
+      this.$router.push('/email/list')
     },
     convertNoteTypeToSubj(type){
      console.log(type);

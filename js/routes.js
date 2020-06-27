@@ -30,12 +30,12 @@ const myRoutes = [
     component: emailApp,
     children: [
       {
-        path: "inbox/:listType",
-        component: emailList,
-      },
-      {
         path: "compose/:emailId?",
         component: emailCompose,
+      },
+      {
+        path: ":listType",
+        component: emailList,
       },
       {
         path: "details/:emailId",
