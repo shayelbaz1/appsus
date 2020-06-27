@@ -78,10 +78,18 @@ export default {
   },
   created() {
   },
+  computed: {
+  },
   methods: {
     sendNote(noteId) {
       let note = notesService.getNoteById(noteId)
-      this.$router.replace(`email/compose/?txt=${note.info.txt}`)
+      const noteSubject = this.convertedNoteSubject(note.type)
+      console.log('noteTitle:', noteSubject)
+      this.$router.replace(`email/compose/?subject=${noteSubject}&txt=${note.info.txt}`)
+    },
+    convertedNoteSubject(noteType) {
+      if (noteType === 'noteTxt') return 'Text Note' 
+      else return noteType
     },
     cloneNote(noteId){
       notesService.cloneNote(noteId)
