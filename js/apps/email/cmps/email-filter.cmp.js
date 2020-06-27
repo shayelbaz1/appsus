@@ -1,7 +1,7 @@
 export default {
   template: `
     <section class="email-filter flex align-center space-evenly">
-        <div class='flex'>
+        <div class='inner-container flex align-center'>
           <div class='filter-container flex align-center'>
             <input type="text" placeHolder="Search Email" v-model="filterBy.subject" @input="filter"/>
             <select v-model='filterBy.selected' @change="filter">

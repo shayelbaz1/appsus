@@ -8,10 +8,22 @@
     max-width: 1150px;
 }
 
+.inner-container {
+    width: 47%;
+    justify-content: space-between;
+}    
+
 .sort-container {
+    height: 30px;
     width: 40%;
+    border: 1px solid black;
+}
+
+.sort-container span {
+    border-left: 1px solid black;
+    height: 30px;
 }
 
 .filter-container input, select{
-  height: 20px
+  height: 30px
 }
