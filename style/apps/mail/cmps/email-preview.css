@@ -1,22 +1,35 @@
 .preview-container {
     width: 100%;
-    border: 1px solid black
+    /* border: 1px solid black */
+    border-bottom: 3px solid #dbe0e2;
+    ;
 }
 
-.preview-container i{
+.preview-container i {
     color: lightblue;
     font-size: 20px;
-}   
+}
 
 .email-preview {
-    padding: 20px;
-    cursor: pointer
+    padding: 14px 20px;
+    cursor: pointer;
+    align-items: center;
+    font-family: tahoma;
 }
 
 .email-preview:hover {
     background-color: #fce8e6;
-  }
+}
 
 .txt-preview {
     width: 100%;
-}    
+}
+
+.txt-preview .sender {
+    width: 30%;
+    font-weight: 600;
+}
+
+.txt-preview .subject {
+    width: 70%;
+}

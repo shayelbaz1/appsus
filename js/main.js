@@ -15,7 +15,7 @@ new Vue({
         <router-link to="/">
             <div class="logo flex align-center">
                     <i class="fas fa-book-reader"></i>
-                    <p>BOOKSTORE</p>
+                    <p>APPSUS</p>
               </div>
           </router-link> 
           <nav>

@@ -8,8 +8,8 @@ export default {
       <li class="email-preview flex justify-center space-between" @click="onShowPreviewClick(email.id)">
           <i v-bind:class="this.currEmail.starClass" style="font-size:25px" @click.stop='onStarClicked(email.id)'></i>
           <div class='txt-preview flex'>
-            <span>Sender: {{email.sender}}  </span>
-            <span>Subject: {{email.subject}}</span>
+            <span class="sender">{{email.sender}}</span>
+            <span class="subject">Subject: {{email.subject}}</span>
           </div>
           <div class='date-preview flex'>
             <span>{{formatedDate}}</span>
