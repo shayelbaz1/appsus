@@ -1,7 +1,11 @@
 .preview-container {
     width: 100%;
     border: 1px solid black
-}  
+}
+
+.preview-container i{
+    color: lightblue;
+}   
 
 .email-preview {
     padding: 20px;
