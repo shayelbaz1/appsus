@@ -1,7 +1,17 @@
 .email-filter {
-    margin-top: 10px;
+    display: flex;
+    font-size: 1.0rem;
+    justify-content: flex-end;
+    width: 100%;
+    align-items: center;
+    padding: 11px;
+    max-width: 1150px;
 }
 
 .sort-container {
     width: 40%;
+}
+
+.filter-container input, select{
+  height: 20px
 }
