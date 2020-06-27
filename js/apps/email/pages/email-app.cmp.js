@@ -16,7 +16,6 @@ export default {
       <div class='main-content flex space-between'>
         <side-bar></side-bar>
           <router-view></router-view>   
-        <no-emails-banner v-if='!isThereEmails' :listType='listType'></no-emails-banner>
       </div>
     </div>
     `,
@@ -48,9 +47,6 @@ export default {
       
       return filteredEmails;
     },
-    isThereEmails() {
-      return this.emails.length
-    },
     listType(){
       const { listType } = this.$route.params
       return listType
@@ -69,17 +65,10 @@ export default {
     }
   },
   async created() {
+    console.log('created');
+    
     // on create send all mails to email list
     this.emails = await emailService.getEmails()
-    eventBusService.$emit('allEmails', this.emails)
+    // eventBusService.$emit('allEmails', this.emails)
   },
-  //on url change
-  watch: {
-    async '$route.params.listType'(){
-      const { listType } = this.$route.params
-      let emails = await emailService.getEmailsByListType(listType);
-      this.emails = emails
-      eventBusService.$emit('routeChanged', this.emails)
-    }
-  } 
 };

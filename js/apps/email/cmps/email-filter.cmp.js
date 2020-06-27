@@ -12,14 +12,14 @@ export default {
           </div>
           <div class='sort-container flex space-evenly align-center'>
             <span class="filter-btn" @click="setSortBy('title')" title="Sort asc by title">
-            <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i>
+              <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i>
             </span>
 
             <span class="filter-btn" @click="setSortBy('date')" title="Sort asc by date">
-            <i class="fa fa-sort-numeric-asc" aria-hidden="true"></i>
+              <i class="fa fa-sort-numeric-asc" aria-hidden="true"></i>
             </span>
           </div>
-        
+        </div>
     </section>
     `,
   data() {

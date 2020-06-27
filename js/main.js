@@ -20,7 +20,7 @@ new Vue({
           </router-link> 
           <nav class="main-nav flex">
 
-            <router-link to="/email/list">
+            <router-link to="/email/inbox/list">
                 <div class="app mail column-layout ">
                   <i class="fas fa-envelope fa-2x"></i>
                  <p> eMail</p>

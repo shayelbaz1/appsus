@@ -7,12 +7,8 @@ export const emailService = {
   getEmailById,
   sendEmail,
   addMsgToDraft,
-  getDelMsgs,
   openEnvelope,
   setStarClass,
-  getDraftEmails,
-  getSentEmails,
-  getUnreadMails,
   getEmailsByListType,
   sortBySubject,
   sortByDate,
@@ -163,7 +159,7 @@ function getEmailsByListType(listType) {
       emails = getEmails()
       break
   }
-  return emails
+  return Promise.resolve(emails)
 }
 
 function getSentEmails() {
@@ -183,6 +179,8 @@ function getUnreadMails() {
 function sendEmail(email) {
   email.id = utils.getRandomId()
   email.isSent = true
+  email.starClass = 'fa fa-star-o',
+  email.envelopeClass = 'fa fa-envelope'
   gEmails.push(email)
 }
 
@@ -193,6 +191,8 @@ function getDraftEmails() {
 function addMsgToDraft(email) {
   email.id = utils.getRandomId()
   email.isDraft = true
+  email.starClass = 'fa fa-star-o',
+  email.envelopeClass = 'fa fa-envelope'
   gEmails.push(email)
 }
 
@@ -215,13 +215,11 @@ function deleteMsgById(msgId) {
 }
 
 function getDelMsgs() {
-  return Promise.resolve(gDelMsgs)
+  return gDelMsgs
 }
 
 function getEmailById(msgId) {
-  return gEmails.find((email) => {
-    return email.id === msgId
-  })
+  return gEmails.find((email) => email.id === msgId)
 }
 
 function getStaredMessages() {
