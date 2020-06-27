@@ -3,15 +3,19 @@
 .flex {
   display: flex;
 }
+
 .align-center {
   align-items: center;
 }
+
 .justify-center {
   justify-content: center;
 }
+
 .space-around {
   justify-content: space-around;
 }
+
 .space-between {
   justify-content: space-between;
 }
@@ -27,15 +31,19 @@
 .column {
   flex-direction: column;
 }
+
 .wrap {
   flex-wrap: wrap;
 }
+
 .flex-start {
   align-items: flex-start;
 }
+
 .flex-end {
   align-items: flex-end;
 }
+
 .justify-end {
   justify-content: flex-end;
 }
@@ -67,6 +75,25 @@
   flex-direction: column;
   align-items: center;
 }
-.column-layout > *:not(:last-child) {
+
+.column-layout>*:not(:last-child) {
   margin-bottom: 7.5px;
+}
+
+.myBtn {
+  background-color: lightblue;
+  border: none;
+  width: 30px;
+  height: 30px;
+  align-self: center;
+  border-radius: 7px;
+  box-shadow: 0px 0px 3px 0px black;
+  color: white;
+  font-size: 1rem;
+  margin-right: 10px;
+  outline: none;
+}
+
+.myBtn:focus {
+  box-shadow: none;
 }

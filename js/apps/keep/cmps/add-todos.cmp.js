@@ -4,15 +4,18 @@ export default {
   name: 'add-todos',
   template: `
     <section class="add-todos">
-        <input type="text" placeHolder="\uf249 Add todos and submit" v-model="todo" @keyup.enter="addTodo" style="font-family:tahoma,FontAwesome"/>
-        <!-- <ul v-if="isShow" class="note-card" >
-          <li v-for="todo in todos">
-              {{todo.txt}}
-              {{todo.isDone}}
-          </li>
-          <button  @click="addTodos">Save todos</button>
-        </ul> -->
-        <section v-if="isShow" class="note-todos note-card">
+        <input type="text" placeHolder="\uf249 Add a todo and Enter" v-model="todo" @keyup.enter="addTodo" style="font-family:tahoma,FontAwesome"/>
+
+        <section v-if="isShow" class="note-todos">
+          <ul>
+            <li class="todo-card todo-line" v-for="todo in todos">
+                {{todo.txt}}
+                <hr/>
+            </li>
+            <button class="myBtn save-btn"  @click="addTodos">Save todos</button>
+          </ul>
+        </section>
+        <!-- <section v-if="isShow" class="note-todos note-card">
           <ul>
             <div class="todo-title">Todo List:</div>
             <hr/>
@@ -22,7 +25,8 @@ export default {
             </li>
             <button  @click="addTodos">Save todos</button>
           </ul>
-        </section>
+        </section> -->
+
     </section>
     `,
   data() {

@@ -27,10 +27,14 @@
 
 .notes-add {
     background-color: #fff;
-    align-items: center;
+    /* align-items: center; */
     justify-content: space-between;
     width: 100%;
     margin: auto;
+}
+
+.type-list-btns {
+    margin-top: 16px;
 }
 
 .inputs {

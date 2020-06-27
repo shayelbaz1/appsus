@@ -14,3 +14,42 @@
     text-align: left;
     margin-left: 10px;
 }
+
+.done {
+    text-decoration: line-through;
+}
+
+.check-box {
+    width: unset;
+    box-shadow: none;
+}
+
+.todo-container {
+    align-items: center;
+}
+
+.todo-container .delete {
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.todo-container:hover .delete {
+    opacity: 1;
+}
+
+.todo-container .delete:hover {
+    color: red;
+}
+
+input[type='checkbox'] {
+    /* -webkit-appearance: none; */
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 5px;
+    border: 2px solid #555;
+}
+
+/* input[type='checkbox']:checked {
+    background: #abd;
+} */

@@ -103,13 +103,16 @@ var gDynamicNotes = [
     isEditMode: false,
     info: {
       label: "How was it:",
-      todos: [{
+      todos: [
+      {
         txt: "Do that",
         isDone: false
-      }, {
-          txt: "Do this",
-          isDone: true
-        }]
+      },
+      {
+        txt: "Do this",
+        isDone: false
+      }
+      ]
     },
     style: {
       backgroundColor: "#white"
@@ -133,8 +136,20 @@ export const notesService = {
   saveEdit,
   toggleEdit,
   cloneNote,
-  getNoteById
+  getNoteById,
+  setDone,
+  deleteTodo
 };
+function deleteTodo(noteId, idx) {
+  let note = getNoteById(noteId)
+  note.info.todos.splice(idx,1)
+  utils.storeToStorage('notes',gNotes)
+}
+function setDone(noteId, idx) {
+  let note = getNoteById(noteId)
+  note.info.todos[idx].isDone = !note.info.todos[idx].isDone
+  utils.storeToStorage('notes',gNotes)
+}
 
 function addNote(newTxt,type = 'noteTxt') {
   var newNote = 
@@ -164,6 +179,7 @@ function cloneNote(noteId) {
   newNote.id = utils.getRandomId()
   
   gNotes.splice(idx,0,newNote)
+  
   utils.storeToStorage('notes',gNotes)
   
 }

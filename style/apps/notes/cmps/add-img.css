@@ -1,3 +1,17 @@
-.add-img {
-    /* background-color: #fff; */
+.add-img .plus {
+    background-color: lightblue;
+    border: none;
+    width: 30px;
+    height: 30px;
+    align-self: center;
+    border-radius: 7px;
+    box-shadow: 0px 0px 3px 0px black;
+    color: white;
+    font-size: 1rem;
+    margin-right: 10px;
+    outline: none;
+}
+
+.add-img .plus:active {
+    box-shadow: none;
 }

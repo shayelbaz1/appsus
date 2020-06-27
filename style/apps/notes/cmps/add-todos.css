@@ -1,3 +1,10 @@
-/* .add-todos input {
-    width: 230px;
-} */
+.save-btn {
+    float: right;
+    width: fit-content;
+    padding: 0px 10px;
+    margin-bottom: 15px;
+}
+
+.todo-line {
+    margin: 0px 10px;
+}
