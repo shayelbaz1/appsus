@@ -13,14 +13,14 @@ export default {
             <p>Learn about the history of the world and many more using our book services</p>
           </div>
           <div class='about-app-container flex column align-center'>
-            <router-link to='/email/list'>
-              <img src='./google-mail.jpg'>
+            <router-link to='.email/list'>
+              <img src='.google-mail.jpg'>
             </router-link>
             <p>Use out top of the line email service system which is packed with features</p>
           </div>
           <div class='about-app-container flex column align-center'>
             <router-link to='/notes'>
-              <img src='./keep.png'>
+              <img src='.keep.png'>
             </router-link>
             <p>Create todo lists and remember thing todo with our beautiful note system</p>
           </div>
