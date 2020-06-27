@@ -51,7 +51,7 @@ export default {
         (currentdate.getMonth() + 1) +
         '/' +
         currentdate.getFullYear() +
-        ' @ ' +
+        ' ' +
         currentdate.getHours() +
         ':' +
         currentdate.getMinutes() +
