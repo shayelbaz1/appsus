@@ -106,6 +106,14 @@ export default {
     }
   },
   created() {
+    const emailData = this.$route.query
+    if (emailData.txt && emailData.title) {
+      notesService.addNote(emailData.txt)
+      this.$router.replace('/notes')
+    }
+    
+
+
     notesService.getNotes()
       .then((notes) => {
       this.notes = notes;

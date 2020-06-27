@@ -92,6 +92,25 @@ export const notesService = {
   getNoteById
 };
 
+function addNote(newTxt,type = 'noteTxt') {
+  var newNote = 
+  {
+    id: utils.getRandomId(),
+    type: type,
+    isPinned: true,
+    isMarked: false,
+    isEditMode: false,
+    info: {
+      txt: newTxt
+    },
+    style: {
+      backgroundColor: "#ffffff"
+    }
+  }
+  gNotes.unshift(newNote)
+  utils.storeToStorage('notes',gNotes)
+}
+
 function cloneNote(noteId) {
   const idx = getNoteIndexById(noteId)
   const oldNote = getNoteById(noteId)
@@ -232,24 +251,7 @@ function deleteNote(noteId) {
   
 }
 
-function addNote(newTxt,type = 'noteTxt') {
-  var newNote = 
-  {
-    id: utils.getRandomId(),
-    type: type,
-    isPinned: true,
-    isMarked: false,
-    isEditMode: false,
-    info: {
-      txt: newTxt
-    },
-    style: {
-      backgroundColor: "#ffffff"
-    }
-  }
-  gNotes.unshift(newNote)
-  utils.storeToStorage('notes',gNotes)
-}
+
 
 function createNotes() {
   const notes = utils.loadFromStorage("notes");

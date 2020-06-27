@@ -84,7 +84,6 @@ export default {
     sendNote(noteId) {
       let note = notesService.getNoteById(noteId)
       const noteSubject = this.convertedNoteSubject(note.type)
-      console.log('noteTitle:', noteSubject)
       this.$router.replace(`email/compose/?subject=${noteSubject}&txt=${note.info.txt}`)
     },
     convertedNoteSubject(noteType) {

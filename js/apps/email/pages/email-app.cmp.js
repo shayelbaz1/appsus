@@ -65,7 +65,6 @@ export default {
     },
     onSort(sortBy){
       console.log(sortBy);
-      debugger
       emailService.sortByType(sortBy)
     }
   },
