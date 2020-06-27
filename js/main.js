@@ -14,14 +14,32 @@ new Vue({
       <header class="flex align-center space-between">
         <router-link to="/">
             <div class="logo flex align-center">
-                    <i class="fas fa-book-reader"></i>
-                    <p>APPSUS</p>
+                    <img src="./img/logo.png" alt=""/>
+                    <p class="title">AppSus</p>
               </div>
           </router-link> 
-          <nav>
-            <router-link to="/email/list">eMail | </router-link>
-            <router-link to="/notes">Notes |</router-link>
-            <router-link to="/book-app">Books</router-link>
+          <nav class="main-nav flex">
+
+            <router-link to="/email/list">
+                <div class="app mail column-layout ">
+                  <i class="fas fa-envelope fa-2x"></i>
+                 <p> eMail</p>
+                </div>
+            </router-link>
+
+            <router-link to="/notes">
+            <div class="app notes column-layout ">
+            <i class="fa fa-sticky-note fa-2x"></i>
+            <p>notes</p>
+            </div>
+            </router-link>
+
+            <router-link to="/book-app">
+            <div class="app books column-layout ">
+              <i class="fa fa-book fa-2x"></i>
+              <p>Books</p>
+              </div>
+          </router-link>
           </nav>
       </header>
   

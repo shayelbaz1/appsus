@@ -1,0 +1,78 @@
+header {
+    /* background-color: #00000000; */
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(143, 143, 143, 1) 100%);
+    border-bottom: 1px solid lightgrey;
+    padding: 0px 20px;
+    padding-top: 10px;
+    padding-bottom: 7px;
+}
+
+/* LOGO */
+
+header img {
+    width: 61px;
+}
+
+/* APSUS */
+
+header .title {
+    font-family: 'Lobster Two', cursive;
+    font-size: 2rem;
+    margin: 0;
+    margin-left: 13px;
+    margin-bottom: 15px;
+    color: #1c54a4;
+    /* text-shadow: 2px 2px 8px #cfcfcf; */
+    text-shadow: 0 0 6px #fffbfb;
+}
+
+header .router-link-active {
+    color: black;
+    text-decoration: none;
+    background-color: #00000000;
+}
+
+/* MAIN NAV */
+
+.main-nav {
+    /* background-color: lightgrey; */
+}
+
+.main-nav i {
+    margin: 0;
+}
+
+.main-nav a {
+    color: black;
+    text-decoration: none;
+}
+
+.main-nav p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 100;
+    display: inline;
+    margin: 0;
+}
+
+.app {
+    margin: 0px 10px;
+    /* color: black; */
+    color: #40bcff;
+    text-shadow: 0 0 6px #fffbfb;
+    transition: 0.3s;
+}
+
+.router-link-exact-active .app {
+    transform: scale(1.1);
+    color: #1c54a4;
+    text-shadow: 0 0 6px #fffbfb;
+}
+
+.app:hover {
+    transform: scale(1.1);
+    color: #1c54a4;
+    text-shadow: 0 0 6px #fffbfb;
+}
+
+/* MAIN NAV */
