@@ -36,12 +36,6 @@
     width: 100%;
 } 
 
-@media only screen and (max-width: 850px) {
-    .email-preview p{
-        padding-left: 20px;
-    }
-}
-
 .txt-preview p {
     width: 400px;
     overflow: hidden;
