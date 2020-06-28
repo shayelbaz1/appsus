@@ -1,4 +1,4 @@
-// import { booksService } from "../services/books.service.js";
+import { booksService } from "../services/books.service.js";
 
 
 import bookList from "../cmps/book-list.cmp.js";
