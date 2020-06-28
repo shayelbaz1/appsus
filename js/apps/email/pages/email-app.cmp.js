@@ -10,10 +10,10 @@ import {eventBusService} from '../../../main-services/event-bus.service.js'
 
 export default {
   template: `
-    <div class='email-app'>
+    <div class='email-app' @click='onCloseMenu'>
       <email-filter @filter='setFilter' @sort='onSort'></email-filter>
       <div class='main-content flex space-around'>
-        <side-bar></side-bar>
+          <side-bar></side-bar>
           <router-view></router-view>   
       </div>
     </div>
@@ -60,6 +60,9 @@ export default {
     onSort(sortBy){
       console.log(sortBy);
       emailService.sortByType(sortBy)
+    },
+    onCloseMenu(){
+      eventBusService.$emit("closeMenu");
     }
   },
   async created() {

@@ -61,5 +61,9 @@ export default {
   created() {
     eventBusService.$on('readEmail', this.updateUnreadEmailsNum)
     eventBusService.$on("toggleMenu", (msg)=>{this.toggleOpenClass(msg)});
+   //  eventBusService.$on("closeMenu", ()=>{
+   //     console.log('close');
+   //     this.closeMenu()
+   //  });
   },
 }
