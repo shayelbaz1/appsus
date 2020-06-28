@@ -14,7 +14,7 @@ export default {
           </div>
           <div class='about-app-container flex column align-center'>
             <router-link to='email/list'>
-              <img src='img/google-mail.jpg'>
+              <img src='../../../img/Gmail-Blue-Wallpaper.jpg'>
             </router-link>
             <p>Use out top of the line email service system which is packed with features</p>
           </div>

@@ -1,16 +1,19 @@
 
 .home-page {
-    font-size: 1rem;  
+    font-size: 1.3rem; 
+    font-family: monospace; 
 }
 
 .home-page-header{
     height: 300px;
+    justify-content: center;
 }
 
 
 .home-page-header h1{
     margin-top: 90px;
-    color: brown;
+    color: #40bcff;
+    width: 60%;
 }
 
 .main-content-container {
@@ -29,6 +32,15 @@
     border-top: 2px solid grey;
 }
 
+.home-footer p {
+    color: #40bcff;
+}
+
 .about-app-container {
-  margin-left: 14px;  
+  margin-left: 14px; 
+  width: 33%; 
+}
+
+.about-app-container p{
+    color: #6dcafc; 
 }
