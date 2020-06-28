@@ -32,14 +32,15 @@ export default {
           sentAt: Date.now(),
           isStared: false,
           isDraft: false,
-          isSent: false
+          isSent: true,
+          envelopeClass: 'fa fa-envelope',
+          starClass: 'fa fa-star-o',
         }    
     }
 
   },
   methods: {
     onSendMail() {
-      // debugger
       emailService.sendEmail(this.msgData)
       this.$router.push('/email/list')
     },
