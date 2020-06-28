@@ -68,6 +68,7 @@ export default {
     } else if(emailId){
       let msgCopy = JSON.parse(JSON.stringify(emailService.getEmailById(emailId)))
       this.msgData = msgCopy
+      this.msgData.subject = `Re: ${this.msgData.subject}` 
     }
   },
   computed: {
