@@ -1,7 +1,7 @@
 header {
     /* background-color: #00000000; */
     background: rgb(255, 255, 255);
-    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(143, 143, 143, 1) 100%);
+    /* background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(143, 143, 143, 1) 100%); */
     border-bottom: 1px solid lightgrey;
     padding: 0px 20px;
     padding-top: 10px;
@@ -73,7 +73,7 @@ header .router-link-active {
 }
 
 .router-link-exact-active .app {
-    transform: scale(1.1);
+    /* transform: scale(1.1); */
     color: #1c54a4;
     text-shadow: 0 0 6px #fffbfb;
 }

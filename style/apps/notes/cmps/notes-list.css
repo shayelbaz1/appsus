@@ -68,7 +68,8 @@
     /* padding: 0px; */
     font-size: 1.6rem;
     justify-content: center;
-    color: #747474;
+    color: #7b7b7b;
+    /* color: #40bcff; */
     /* color: red; */
     position: relative;
     left: 0px;
@@ -86,5 +87,5 @@
 }
 
 .note-card .note-btns-box i:hover {
-    color: rgb(255, 52, 52)
+    color: #323232
 }
