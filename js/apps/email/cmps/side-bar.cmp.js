@@ -7,7 +7,7 @@ export default {
        <div class='compose-btn flex'>
          <router-link to="/email/compose" class="compose-group flex align-center" >
                   <i class="fa fa-plus" aria-hidden="true"></i>
-                  <span>Compose</span>
+                  <span>Compose</span><span>{{numOfUnreadMsgs}}</span>
          </router-link>  
        </div>
        <div class="side-bar-btns">
@@ -32,7 +32,6 @@ export default {
              <h2>Deleted</h2>
           </router-link>
        </div>
-       <p>You have {{numOfUnreadMsgs}} unread emails</p>
     </section>
   `,
   data(){
