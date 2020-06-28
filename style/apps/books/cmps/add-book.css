@@ -11,12 +11,12 @@
 
 /*#region TITLE */
 
-.title-box {
+.add-book .title-box {
     padding-bottom: 10px;
     margin-bottom: 10px;
 }
 
-.title-box .page-title {
+.add-book .title-box .page-title {
     font-family: Lobster;
     font-size: 3rem;
     color: white;
@@ -24,14 +24,33 @@
     margin-bottom: 0px;
 }
 
-.title-box input {
+.add-book .title-box input {
     width: 50%;
 }
 
 /*#endregion TITLE */
 
 .add-book .book-txt-box {
+    /* background-color: pink; */
     font-family: 'Rubik', sans-serif;
     justify-content: left;
     align-items: flex-start;
+    height: unset;
+    min-height: 67px;
+}
+
+.book-txt-box .add-btn {
+    background-color: #FFC107;
+    border: none;
+    /* width: 30px; */
+    /* height: 30px; */
+    align-self: center;
+    border-radius: 7px;
+    box-shadow: 0px 0px 3px 0px black;
+    color: black;
+    font-size: 1rem;
+    /* margin-right: 10px; */
+    outline: none;
+    padding: 10px 9px;
+    font-family: 'Rubik';
 }

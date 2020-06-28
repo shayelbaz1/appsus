@@ -26,6 +26,28 @@ p {
     font-weight: 900;
 }
 
+/*#region TITLE */
+
+.book-app .title-box {
+    /* background-color: plum; */
+    /* padding: 10px 0px; */
+    margin-bottom: 10px;
+}
+
+.book-app .title-box .page-title {
+    font-family: Lobster;
+    font-size: 3rem;
+    color: white;
+    text-shadow: 0px 0px 5px black;
+    margin-bottom: 8px;
+}
+
+.book-app .title-box input {
+    width: 50%;
+}
+
+/*#endregion TITLE */
+
 main {
     width: 100%;
 }

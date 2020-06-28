@@ -1,8 +1,19 @@
 /*#region BOOK-FILTER  */
 
 .book-filter {
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     display: flex;
+}
+
+@media only screen and (max-width: 420px) {
+    .book-filter {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .book-filter input {
+        width: 100%;
+    }
 }
 
 /*#endregion BOOK-FILTER  */

@@ -19,9 +19,16 @@ export default {
                   <p>BOOKSTORE</p>
               </div>
               </aside> -->
+              
   
               <main class="flex-column">
+
+              <div class="title-box flex column-layout justify-center">
+                  <div class="page-title">My Books</div>
                   <book-filter @filter="setFilter"></book-filter>
+              </div>
+
+                  
                   <book-list :books="booksToShow"></book-list>
               </main>
              

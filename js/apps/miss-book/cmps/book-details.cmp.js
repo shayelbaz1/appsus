@@ -18,7 +18,7 @@ export default {
         <p>{{bookAge}}</p>
         <p :class="{red: isAbove150,green: isLess20}">{{book.listPrice.amount}}</p>
         <p v-if="isOnSale">on Sale!</p>
-        <long-text :desc="book.description"></long-text>
+        <long-text :desc="book.description" :long="100"></long-text>
 
         <section class="reviews" v-if="book.reviews" >
           <ul>

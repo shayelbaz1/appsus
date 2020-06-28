@@ -1,5 +1,7 @@
 import { booksService } from '../services/books.service.js'
-import {eventBus} from '../../../services/event-bus.service.js'
+import { eventBus } from '../../../services/event-bus.service.js'
+import longText from '../cmps/long-text.cmp.js'
+
 export default {
   template: `
   
@@ -14,8 +16,10 @@ export default {
               <img :src="imgUrl(book)" alt='No Book Picture'/>
               
               <div class="book-txt-box column-layout">
-                <div class="book-title">{{book.volumeInfo.title}}</div>
-                <button @click.stop="addBook(book)">Add To My Books</button>
+                <!-- <div class="book-title">{{book.volumeInfo.title}}</div> -->
+                <!-- <div class="book-title">{{bookTitle(book.volumeInfo.title)}}</div> -->
+                <long-text :desc="book.volumeInfo.title" :long="30"></long-text>
+                <button class="add-btn" @click.stop="addBook(book)">Add To My Books</button>
               </div>
               
           </li>
@@ -23,6 +27,9 @@ export default {
 
     </section>    
     `,
+  components:{
+  longText
+  },
   data() {
     return {
       googleBooks: null,
@@ -31,41 +38,48 @@ export default {
     
   },
   methods: {
-    addBook(book) {
-      // console.log('book:', book)
+    // bookTitle(title) {
+    //   if (title.length >= 28) {
+    //     return title.split("").slice(0, 28).join("") + "...";
+    //   } else {
+    //     return title;
+    //   }
+    // },
+      addBook(book) {
+        // console.log('book:', book)
 
-      booksService.addBook(book)
+        booksService.addBook(book)
 
-      eventBus.$emit("showMsg", {
-        txt: `Book ${book.volumeInfo.title} was successfully added`,
-        link: `/book/${book.id}`,
-        type: "success",
-      });
+        eventBus.$emit("showMsg", {
+          txt: `Book ${book.volumeInfo.title} was successfully added`,
+          link: `/book/${book.id}`,
+          type: "success",
+        });
+      },
+      imgUrl(book) {
+        // console.log('book:', book)
+        const imgLink = book.volumeInfo.imageLinks
+        if (imgLink) return imgLink.thumbnail
+        else return ""
+      },
+      loadBooks() {
+        return booksService.getBooksFromGoogle()
+          .then(books => {
+            // console.log('books:', books)
+            this.googleBooks = books
+          })
+      },
     },
-    imgUrl(book) {
-      // console.log('book:', book)
-      const imgLink = book.volumeInfo.imageLinks
-      if (imgLink ) return imgLink.thumbnail
-      else return ""
+    created() {
+      const books = this.loadBooks()
     },
-    loadBooks() {
-      return booksService.getBooksFromGoogle()
-      .then(books => {
-      // console.log('books:', books)
-      this.googleBooks = books
-    })
-    },
-  },
-  created() {
-    const books = this.loadBooks()
-  },
-  watch: {
-    searchBook(newSearchBook) {
-      booksService.findBooks(newSearchBook)
-        .then(books => {
-        this.googleBooks = books
-        }
-        )
+    watch: {
+      searchBook(newSearchBook) {
+        booksService.findBooks(newSearchBook)
+          .then(books => {
+            this.googleBooks = books
+          }
+          )
+      }
     }
-  }
-};
+  };

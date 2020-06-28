@@ -10,9 +10,9 @@ export default {
   props: ['notes'],
   template: `
         <ul class="notes-list clean-list">
-            <li class="note-card" v-for="(note,idx) in notes" :key="note.id" :style="note.style" v-if="!note.isPinned" :class="{marked: note.isMarked}">
+            <li class="note-card" v-for="(note,idx) in notes" :key="note.id" :style="note.style" :class="{marked: note.isMarked}">
               
-              <!-- NOTE CARD -->
+              <!-- NOTE CARD === CMP preview -->
               <component :is="note.type" :info="note.info" 
               :isEditMode="note.isEditMode" :noteId="note.id"></component>
               
@@ -22,7 +22,7 @@ export default {
 
 
               <!-- DELETE NOTE -->
-              <div>
+                <div>
                 <div @click="deleteNote(note.id)" class="note-card-delete">
                 <i class="fas fa-trash"></i>
                 </div>

@@ -1,15 +1,16 @@
 export default {
-  props: ["desc"],
+  name: 'long-text',
+  props: ["desc",'long'],
   template: `
-    <div>
-      <p v-if="isShowShort">{{descriptionToShow}}</p>
+    <div class="long-text">
+      <div class="short-desc" v-if="isShowShort">{{descriptionToShow}}</div>
 
-      <p v-else>{{desc}}</p>
+      <div class="long-desc" v-else>{{desc}}</div>
 
       <div v-if="isShowButton">
-        <button v-if="isShowShort" @click="toggleIsShort">read more</button>
+        <button class="read-btn" v-if="isShowShort" @click="toggleIsShort">read more</button>
 
-        <button v-else @click="toggleIsShort">read Less</button>
+        <button class="read-btn" v-else @click="toggleIsShort">read Less</button>
       </div>
     </div>
     `,
@@ -21,7 +22,7 @@ export default {
   computed: {
     isShowButton() {
       const desc = this.desc;
-      if (desc.length >= 100) {
+      if (desc.length >= this.long) {
         return true;
       } else {
         return false;
@@ -29,8 +30,8 @@ export default {
     },
     descriptionToShow() {
       const desc = this.desc;
-      if (desc.length >= 100) {
-        return desc.split("").slice(0, 100).join("") + "...";
+      if (desc.length >= this.long) {
+        return desc.split("").slice(0, this.long).join("") + "...";
       } else {
         return desc;
       }

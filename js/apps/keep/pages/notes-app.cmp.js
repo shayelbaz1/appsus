@@ -34,9 +34,8 @@ export default {
               </section>
             </div>
 
-            <notes-pinned :notes="pinnedNotes"></notes-pinned>
-            <!-- <notes-pinned :notes="notesToShow"></notes-pinned> -->
-            <notes-list :notes="notesToShow"></notes-list>
+            <notes-list :notes="pinnedNotes"></notes-list>
+            <notes-list :notes="unPinnedNotes"></notes-list>
         </section>
 
 
@@ -62,9 +61,16 @@ export default {
   },
   computed: {
     pinnedNotes() {
-      var pinnedNotes = this.notes
+      var pinnedNotes = this.notesToShow
         .filter(note => {
-        return note.isPinned === true
+        return note.isPinned
+        })
+      return pinnedNotes
+    },
+    unPinnedNotes() {
+      var pinnedNotes = this.notesToShow
+        .filter(note => {
+        return !note.isPinned
         })
       return pinnedNotes
     },
