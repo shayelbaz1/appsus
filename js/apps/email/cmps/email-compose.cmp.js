@@ -7,12 +7,19 @@ export default {
     <section class='compose-container flex column'>
       <h1 class='compose-header'>New Message</h1>
       <form class='compose-form flex column'>
+        <label>Name:</label>
         <input type='text' placeholder='enter your name' v-model='msgData.sender'>
+        <label>Subject:</label>
         <input type='text' placeholder='Subject' v-model='msgData.subject'>
+        <label>From:</label>
         <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$" type='email' placeholder='enter your email' v-model='msgData.senderEmail'>
+        <label>To:</label>
         <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$" type='email' placeholder='Send to' v-model='msgData.toEmail'>
-        <textarea placeholder='Enter body text' v-model='msgData.body'>
-        </textarea>
+        <label>Body:</label>
+        <div class='textarea-container flex justify-center'>
+          <textarea placeholder='Enter body text' v-model='msgData.body'>
+          </textarea>
+        </div>
         <div class='compose-button-container flex space-between'>
           <button @click='onSendMail' :disabled='!isValid'>Send Mail</button>
           <button @click='onSaveDraft' :disabled='!isValid'>Save As Draft</button>

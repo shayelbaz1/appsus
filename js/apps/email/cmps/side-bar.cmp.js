@@ -7,13 +7,15 @@ export default {
        <div class='compose-btn flex'>
          <router-link to="/email/compose" class="compose-group flex align-center" >
                   <i class="fa fa-plus" aria-hidden="true"></i>
-                  <span>Compose</span><span>{{numOfUnreadMsgs}}</span>
+                  <div class='flex'>
+                    <span>Compose</span>
+                  </div>
          </router-link>  
        </div>
        <div class="side-bar-btns">
           <router-link to='/email/list' class='side-links flex align-center'>
              <i class="fa fa-inbox" aria-hidden="true"></i>
-             <h2>Inbox</h2>
+             <h2>Inbox {{numOfUnreadMsgs}}</h2>
           </router-link>
           <router-link to='/email/starred' class='side-links flex align-center'>
              <i class="fa fa-star" style="font-size:25px"></i>
