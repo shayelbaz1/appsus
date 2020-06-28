@@ -1,0 +1,20 @@
+.long-text .read-btn {
+    /* background-color: #FFC107; */
+    border: none;
+    border-radius: 7px;
+    box-shadow: 0px 0px 2px 0px black;
+    color: black;
+    font-size: 1rem;
+    outline: none;
+    padding: 2px 5px;
+    font-family: 'Rubik';
+    margin: 0px auto;
+}
+
+.long-text .read-btn:hover {
+    box-shadow: 0px 0px 3px 0px black;
+}
+
+.long-text .read-btn:active {
+    box-shadow: none;
+}

@@ -25,11 +25,13 @@
 @import "./apps/books/cmps/book-filter.css";
 @import "./apps/books/cmps/book-app.css";
 @import "./apps/books/cmps/review-add.css";
+@import "./apps/books/cmps/long-text.css";
 /* @import "./apps/books/cmps/user-msg.css"; */
 
 @import "./apps/books/cmps/about-page.css";
 @import "./apps/books/cmps/add-book.css";
 /* MAILS CMPS */
+
 @import "./apps/mail/cmps/email-filter.css";
 @import "./apps/mail/cmps/email-details.css";
 @import "./apps/mail/cmps/email-compose.css";
@@ -38,9 +40,6 @@
 @import "./apps/mail/cmps/email-list.css";
 @import "./apps/mail/cmps/no-email-banner.css";
 @import "./apps/mail/cmps/big-preview.css";
-
 /* MAILS PAGES */
+
 @import "./apps/mail/pages/email-app.css";
-
-
-
