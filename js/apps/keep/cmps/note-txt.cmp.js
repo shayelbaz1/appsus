@@ -7,8 +7,13 @@ export default {
     props:['info','isEditMode','noteId'],
     template: `
       <section class="note-txt">
-        <input v-if="isEditMode" type="text" v-model="noteTxt" @keyup.enter="saveEdit"/>
-        <div v-else @click="toggleEdit">{{noteTxt}}</div>
+        <textarea rows="8" cols="24" v-if="isEditMode" type="text-area" v-model="noteTxt" @keyup.escape="saveEdit"></textarea>
+        <button v-if="isEditMode" @click="saveEdit">Save Edit</button>
+        <div v-else @click="toggleEdit">
+          {{noteTxt}}
+          <br/>
+          <br/>
+        </div>
       </section>
       `,
   data() {

@@ -10,15 +10,17 @@ export default {
           <hr/>
           <li class="todo-card clean-list" v-for="(todo,idx) in todosInfo">
           <div class="todo-container flex space-between">
-            <input id="chackbox" class="check-box" type='checkbox' @click='done(noteId,idx)' v-model="todo.isDone">
-            <!-- INPUTS -->
+                <input id="chackbox" class="check-box" type='checkbox' @click='done(noteId,idx)' v-model="todo.isDone">
+                <!-- INPUTS -->
                 <input :class="{done: todo.isDone}" ref="input" v-show="isEditMode" type="text" v-model="todo.txt" @keyup.enter="saveEdit" @keyup.escape="saveEdit"/>
-            <!-- TEXT -->
+                <!-- TEXT -->
                 <div v-show="!isEditMode" @click="toggleEdit" class="todo-txt" :class="{done: todo.isDone}">{{todo.txt}}</div>
-
+                
                 <i @click="deleteTodo(noteId,idx)"class="fas fa-trash delete"></i>
-          </div>
-          <hr/>
+              </div>
+              
+              <hr/>
+              <button v-if="isEditMode" @click="saveEdit">Save Edit</button>
           </li>
           
         </ul>

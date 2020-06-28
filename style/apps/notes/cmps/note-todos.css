@@ -4,6 +4,7 @@
 
 .note-todos input {
     margin: 0;
+    width: 70%;
 }
 
 .todo-title {
