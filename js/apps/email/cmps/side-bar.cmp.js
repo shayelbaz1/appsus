@@ -3,7 +3,7 @@ import { eventBusService } from '../../../main-services/event-bus.service.js'
 
 export default {
   template: `
-    <section class='side-bar flex column align-center'>
+    <section :class='filterClass'>
        <div class='compose-btn flex'>
          <router-link to="/email/compose" class="compose-group flex align-center" >
                   <i class="fa fa-plus" aria-hidden="true"></i>
@@ -34,18 +34,32 @@ export default {
              <h2>Deleted</h2>
           </router-link>
        </div>
+       <div class='close-menu'>
+          <i @click='closeMenu' class="fas fa-times fa-2x"></i>
+       </div>
     </section>
   `,
   data(){
-    return {numOfUnreadMsgs: emailService.getUnreadMails().length}
+    return {
+       numOfUnreadMsgs: emailService.getUnreadMails().length,
+       filterClass: 'side-bar flex column align-center'
+    }
   },
   methods: {
-   updateUnreadEmailsNum() {
+    updateUnreadEmailsNum() {
       let numOfUnreadMails = emailService.getUnreadMails().length
       this.numOfUnreadMsgs = numOfUnreadMails
     },
+    toggleOpenClass(msg){
+      console.log(msg);
+      this.filterClass = 'side-bar flex column align-center ' + msg
+    },
+    closeMenu(){
+      this.filterClass = 'side-bar flex column align-center'
+    }
   },
   created() {
     eventBusService.$on('readEmail', this.updateUnreadEmailsNum)
+    eventBusService.$on("toggleMenu", (msg)=>{this.toggleOpenClass(msg)});
   },
 }

@@ -5,7 +5,7 @@ import {eventBusService} from '../../../main-services/event-bus.service.js'
 export default {
   props:['email'],  
   template: `
-    <div class='flex column align-center'>
+    <div class='big-preview-container flex column align-center'>
         <h3 class='big-subject-preview'>{{email.subject}}</h3>
         <div class='big-content-container flex'>
           <span>{{email.sender}}</span><span class='sender-email'><{{email.senderEmail}}></span>

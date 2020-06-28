@@ -10,20 +10,6 @@
   margin-left: 16px;
 }
 
-@media (max-width: 750px) {
-  .compose-btn {
-    width: 3.5rem;
-    height: 3.5rem;
-    border-radius: 50%;
-    padding-top: 6px;
-    padding-left: 7px;
-    position: fixed;
-    bottom: 35px;
-    right: 30px;
-    box-shadow: 2px 5px 10px -2px black;
-  }
-}
-
 .compose-container input {
   width: 97%;
   border: none !important;

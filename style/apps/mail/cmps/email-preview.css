@@ -20,13 +20,27 @@
     background-color: rgb(216, 209, 209);
 }
 
+@media only screen and (max-width: 850px) {
+    .txt-preview {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-right: 14px;
+    }
+}
+
 .txt-preview {
     width: 100%;
 }
 
 .email-preview h3 {
     width: 100%;
-}    
+} 
+
+@media only screen and (max-width: 850px) {
+    .email-preview p{
+        padding-left: 20px;
+    }
+}
 
 .txt-preview p {
     width: 400px;

@@ -1,3 +1,6 @@
+import {eventBusService} from '../../../main-services/event-bus.service.js'
+
+
 export default {
   template: `
     <section class="email-filter flex align-center space-evenly">
@@ -19,6 +22,9 @@ export default {
               <i class="fa fa-sort-numeric-asc" aria-hidden="true"></i>
             </span>
           </div>
+          <div class='toggle-menu'>
+            <i @click='toggleMenu' class='fa fa-bars'></i>
+          </div>
         </div>
     </section>
     `,
@@ -33,8 +39,8 @@ export default {
         { text: 'All', value: 'All'},
         { text: 'Read', value: true},
         { text: 'unRead', value: false}
-      ]
-    };
+      ],
+    }
   },
   methods: {
     setSortBy(sortBy){
@@ -44,6 +50,9 @@ export default {
     },
     filter() {
       this.$emit("filter", this.filterBy);
+    },
+    toggleMenu(){
+      eventBusService.$emit("toggleMenu", 'open');
     }
   },
 };
