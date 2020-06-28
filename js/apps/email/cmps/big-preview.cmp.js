@@ -6,8 +6,11 @@ export default {
   props:['email'],  
   template: `
     <div class='flex column align-center'>
-        <span>Subject: {{email.subject}}</span>
-        <span>Sender: {{email.sender}}</span>
+        <h3>{{email.subject}}</h3>
+        <div class='flex'>
+          <span>{{email.sender}}</span><span class='sender-email'><{{email.senderEmail}}></span>
+        </div>
+        <p>{{email.body}}</p>
         <div class='preview-icons flex align-center'>
           <i @click='onDelMsg(email.id)' class="fa fa-trash" aria-hidden="true" title='delete a message'></i>
           <router-link :to="'compose/' + email.id">
@@ -18,7 +21,6 @@ export default {
           </router-link>
           <i @click='saveEmailAsNote' class="fa fa-sticky-note" aria-hidden="true" title='save as note'></i>
         </div>
-        <p>{{email.body}}</p>
     </div>
   `,
   methods: {

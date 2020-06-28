@@ -7,9 +7,9 @@ export default {
     <div class='preview-container'>
       <li class="email-preview flex justify-center space-between" @click="onShowPreviewClick(email.id)">
           <i v-bind:class="this.currEmail.starClass" style="font-size:25px" @click.stop='onStarClicked(email.id)'></i>
-          <div class='txt-preview flex'>
+          <div class='txt-preview flex align-center'>
             <span class="sender">{{email.sender}}</span>
-            <span class="subject">Subject: {{email.subject}}</span>
+              <p><span class='bold'>{{email.subject}}</span>-{{email.body}}</p>
           </div>
           <div class='date-preview flex'>
             <span>{{formatedDate}}</span>
@@ -29,8 +29,6 @@ export default {
   },
   methods: {
     onStarClicked(emailId) {
-      //fa fa-star-o
-      emailService.setMsgStarById(emailId)
       this.isStarred = !this.isStarred
       emailService.setMsgStarById(emailId, this.isStarred)
       emailService.setStarClass(emailId, this.isStarred)
