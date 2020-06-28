@@ -1,11 +1,29 @@
 .details-container{
-    border: 2px solid black;
     width: 100vh;
     padding: 14px;
     background-color: white;
     padding: 12px;
+    box-shadow:1px 1px 4px 3px lightgrey
+}
+
+.details-info-container {
+   margin-left: 15px; 
 }
 
 .subject-info {
     border-bottom: 2px solid black;
+    padding-bottom: 15px
+}
+
+.details-name {
+  font-weight: 600; 
+  text-transform: capitalize; 
+}
+
+.senders-email {
+   color: gray; 
+}
+
+.details-container p {
+    margin-left: 15px; 
 }

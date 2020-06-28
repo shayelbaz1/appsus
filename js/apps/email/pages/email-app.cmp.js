@@ -12,7 +12,7 @@ export default {
   template: `
     <div class='email-app'>
       <email-filter @filter='setFilter' @sort='onSort'></email-filter>
-      <div class='main-content flex space-between'>
+      <div class='main-content flex space-around'>
         <side-bar></side-bar>
           <router-view></router-view>   
       </div>

@@ -16,3 +16,7 @@
 .preview-icons {
   padding-bottom: 10px;  
 }
+
+.preview-icons i {
+  cursor: pointer;  
+}
