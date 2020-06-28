@@ -1,5 +1,7 @@
 .notes-app {
-    background-color: #212125;
+    /* background-color: #212125; */
+    background-color: #cdedff;
+    /* background-color: #eeeeee; */
     /* background-color: lightgrey; */
     padding: 10px;
     height: 100%;
@@ -31,6 +33,7 @@
     justify-content: space-between;
     width: 100%;
     margin: auto;
+    border-radius: 4px;
 }
 
 .type-list-btns {
@@ -64,3 +67,10 @@
 }
 
 /*#endregion ADD-BOX  */
+
+.hr-div {
+    background-color: white;
+    height: 2px;
+    width: 100%;
+    border-radius: 50px;
+}

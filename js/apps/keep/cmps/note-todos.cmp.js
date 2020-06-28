@@ -11,8 +11,10 @@ export default {
           <li class="todo-card clean-list" v-for="(todo,idx) in todosInfo">
           <div class="todo-container flex space-between">
             <input id="chackbox" class="check-box" type='checkbox' @click='done(noteId,idx)' v-model="todo.isDone">
-                <input v-if="isEditMode" type="text" v-model="todo.txt" @keyup.enter="saveEdit" @keyup.escape="saveEdit"/>
-                <div v-else @click="toggleEdit" class="todo-txt" :class="{done: todo.isDone}">{{todo.txt}}</div>
+            <!-- INPUTS -->
+                <input :class="{done: todo.isDone}" ref="input" v-show="isEditMode" type="text" v-model="todo.txt" @keyup.enter="saveEdit" @keyup.escape="saveEdit"/>
+            <!-- TEXT -->
+                <div v-show="!isEditMode" @click="toggleEdit" class="todo-txt" :class="{done: todo.isDone}">{{todo.txt}}</div>
 
                 <i @click="deleteTodo(noteId,idx)"class="fas fa-trash delete"></i>
           </div>
@@ -38,9 +40,9 @@ export default {
         notesService.saveEdit(this.noteId, this.todosInfo, 'noteTodos')
         this.toggleEdit()
       },
-      toggleEdit() {
-        notesService.toggleEdit(this.noteId)
-      }
+    toggleEdit() {
+      notesService.toggleEdit(this.noteId)
     },
+    }
   };
   

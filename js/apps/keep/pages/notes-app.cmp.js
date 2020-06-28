@@ -35,6 +35,7 @@ export default {
             </div>
 
             <notes-list :notes="pinnedNotes"></notes-list>
+            <div class="hr-div"></div>
             <notes-list :notes="unPinnedNotes"></notes-list>
         </section>
 

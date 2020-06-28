@@ -20,47 +20,35 @@ export default {
 
 
 
-
-              <!-- DELETE NOTE -->
-                <div>
-                <div @click="deleteNote(note.id)" class="note-card-delete">
-                <i class="fas fa-trash"></i>
-                </div>
-                <!-- PIN NOTE -->
-                <div @click="pinSelectedNote(note.id)" class="note-card-delete">
-                <i class="fas fa-thumbtack"></i>
-                </div>
-                <!-- MARK NOTE -->
-                <div @click="markSelectedNote(note.id)" class="note-card-delete">
-                <i class="fas fa-check"></i>
-                </div> 
-                <!-- COLOR NOTE -->
-                <div @mouseover="isShowColors = true" @mouseleave="isShowColors = true" class="note-card-delete">
-                <i class="fas fa-palette"></i>
-                  <div v-if="isShowColors" class="color-options">
-                    <span @click="setColor(note.id,'#ffffff')" style="background-color: #ffffff"></span>
-                    <span @click="setColor(note.id,'#ff8888')" style="background-color: #ff8888"></span>
-                    <span @click="setColor(note.id,'#ffcc88')" style="background-color: #ffcc88"></span>
-                    <span @click="setColor(note.id,'#ffff88')" style="background-color: #ffff88"></span>
-                    <span @click="setColor(note.id,'#ccff99')" style="background-color: #ccff99"></span>
-                    <span @click="setColor(note.id,'#aaffee')" style="background-color: #aaffee"></span>
-                    <span @click="setColor(note.id,'#ddbbff')" style="background-color: #ddbbff"></span>
-                    <span @click="setColor(note.id,'#dddddd')" style="background-color: #dddddd"></span>
-                  </div>
-                </div> 
-                <!-- EDIT NOTE -->
-                <div @click="toggleEdit(note.id)" class="note-card-delete">
-                <i class="fas fa-edit"></i>
-                </div> 
-                <!-- CLONE CLONE -->
-                <div @click="cloneNote(note.id)" class="note-card-delete">
-                <i class="fas fa-clone"></i>
-                </div> 
-
-                <!-- CLONE SEND -->
-                <div @click="sendNote(note.id)" class="note-card-delete">
-                <i class="fas fa-send"></i>
-                </div> 
+              <!-- START BTNS BOX -->
+                  <div class="note-btns-box flex space-evenly" @mouseleave="isShowColors = false">
+                    <!-- PIN NOTE -->
+                    <i @click="pinSelectedNote(note.id)" class="fas fa-thumbtack"></i>
+                    <!-- MARK NOTE -->
+                    <i @click="markSelectedNote(note.id)" class="fas fa-check"></i>
+                    <!-- COLOR NOTE -->
+                    <i @mouseover="isShowColors = true"   class="fas fa-palette"></i>
+                      <div @mouseover="isShowColors = true" @mouseleave="isShowColors = false" v-if="isShowColors" class="color-options">
+                        <span @click="setColor(note.id,'#ffffff')" style="background-color: #ffffff"></span>
+                        <span @click="setColor(note.id,'#ff8888')" style="background-color: #ff8888"></span>
+                        <span @click="setColor(note.id,'#ffcc88')" style="background-color: #ffcc88"></span>
+                        <span @click="setColor(note.id,'#ffff88')" style="background-color: #ffff88"></span>
+                        <span @click="setColor(note.id,'#ccff99')" style="background-color: #ccff99"></span>
+                        <span @click="setColor(note.id,'#aaffee')" style="background-color: #aaffee"></span>
+                        <span @click="setColor(note.id,'#ddbbff')" style="background-color: #ddbbff"></span>
+                        <span @click="setColor(note.id,'#dddddd')" style="background-color: #dddddd"></span>
+                        <span @click="setColor(note.id,'#ffb4d1')" style="background-color: #ffb4d1"></span>
+                      </div>
+                    <!-- EDIT NOTE -->
+                    <i @click="toggleEdit(note.id)" class="fas fa-edit"></i>
+                    <!-- CLONE CLONE -->
+                    <i @click="cloneNote(note.id)" class="fas fa-clone"></i>
+                    <!-- CLONE SEND -->
+                    <i @click="sendNote(note.id)" class="fas fa-send"></i>
+                    <!-- DELETE NOTE -->                  
+                    <i @click="deleteNote(note.id)" class="fas fa-trash"></i>
+                  </div> 
+              <!-- END NOTE-BTNS-BOX -->
                 
               </div> 
             </li>
@@ -73,7 +61,7 @@ export default {
       hover: false,
       newNotes: null,
       selectedNoteId: "",
-      isShowColors: true,
+      isShowColors: false,
     };
   },
   created() {
