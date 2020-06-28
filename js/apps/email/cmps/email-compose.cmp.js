@@ -54,10 +54,14 @@ export default {
   },
   created() {
     const note = this.$route.query
-    this.msgData.body = note.txt
-    this.msgData.subject = note.subject
     const { emailId } = this.$route.params
-    if(emailId) this.msgData = emailService.getEmailById(emailId)
+    if (note.subject && note.txt) {
+      this.msgData.body = note.txt
+      this.msgData.subject = note.subject 
+    } else if(emailId){
+      let msgCopy = JSON.parse(JSON.stringify(emailService.getEmailById(emailId)))
+      this.msgData = msgCopy
+    }
   },
   computed: {
     isValid(){
