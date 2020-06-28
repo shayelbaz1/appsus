@@ -43,3 +43,8 @@ h1 {
 i {
     cursor: pointer;
 }
+
+textarea {
+    font-family: 'rubik';
+    font-size: 1.3rem;
+}

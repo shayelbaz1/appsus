@@ -20,9 +20,9 @@ export default {
               </div>
               
               <hr/>
-              <button v-if="isEditMode" @click="saveEdit">Save Edit</button>
+              
           </li>
-          
+          <button v-if="isEditMode" @click="saveEdit">Save Edit</button>
         </ul>
       </section>
       `,
