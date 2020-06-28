@@ -12,7 +12,7 @@ export default {
           <div class='app-box book'>
             <div class="img-box">
               <router-link to='book-app'>
-                <img src='../../../img/book500.png'>
+                <img src='img/book500.png'>
               </router-link>
             </div>
             <div class="txt-box">
@@ -25,7 +25,7 @@ export default {
           <div class='app-box mail'>
             <div class="img-box">
               <router-link to='email/list'>
-                <img src='../../../img/gmail500.png'>
+                <img src='img/gmail500.png'>
               </router-link>
             </div>
             <div class="txt-box">
@@ -38,7 +38,7 @@ export default {
           <div class='app-box notes'>
             <div class="img-box">
               <router-link to='notes'>
-                <img src='../../../img/keep500.png'>
+                <img src='img/keep500.png'>
               </router-link>
             </div>
             <div class="txt-box">
