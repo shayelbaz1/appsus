@@ -82,11 +82,12 @@
 
 .side-bar h2 {
   color: #5f6368;
+  font-size: 20px;
 }
 
 .side-bar i {
-  color: darkseagreen;
-  font-size: 33px;
+  color: gray;
+  font-size: 20px;
 }
 
 .side-bar-btns i {

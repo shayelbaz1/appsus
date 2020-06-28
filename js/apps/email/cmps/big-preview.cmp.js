@@ -6,8 +6,8 @@ export default {
   props:['email'],  
   template: `
     <div class='flex column align-center'>
-        <h3>{{email.subject}}</h3>
-        <div class='flex'>
+        <h3 class='big-subject-preview'>{{email.subject}}</h3>
+        <div class='big-content-container flex'>
           <span>{{email.sender}}</span><span class='sender-email'><{{email.senderEmail}}></span>
         </div>
         <p>{{email.body}}</p>

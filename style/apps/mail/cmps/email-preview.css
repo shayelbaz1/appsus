@@ -5,7 +5,7 @@
 }
 
 .preview-container i {
-    color: lightblue;
+    color: gray;
     font-size: 26px;
 }
 
@@ -24,6 +24,10 @@
     width: 100%;
 }
 
+.email-preview h3 {
+    width: 100%;
+}    
+
 .txt-preview p {
     width: 400px;
     overflow: hidden;
@@ -35,9 +39,20 @@
     font-weight: 600;
 }
 
+.txt-preview p {
+    letter-spacing: 2px;
+    width: 100%;
+    padding-left: 16px;
+}
+
+.sender-email {
+    color: gray;
+} 
+
 .txt-preview .sender {
     width: 30%;
     font-weight: 600;
+    text-transform: capitalize;
 }
 
 .txt-preview .subject {

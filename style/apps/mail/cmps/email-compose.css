@@ -1,8 +1,13 @@
 .compose-container {
-  width: 100%;
+  width: 70%;
   height: 90%;
-  border: 2px solid black;
   background-color: white;
+  box-shadow: 1px 1px 4px 3px lightgrey;
+  padding-top: 11px;
+}
+
+.compose-form label{
+  margin-left: 16px;
 }
 
 @media (max-width: 750px) {
@@ -20,22 +25,22 @@
 }
 
 .compose-container input {
-  width: 90%;
-  box-shadow: none;
+  width: 97%;
   border: none !important;
   border-color: transparent !important;
 }
 
 .compose-container textarea {
   height: 104px;
-  border: none;
   padding: 15px;
+  width: 50%;
+  box-shadow: 1px 1px 1px 1px lightgrey;
 }
 
 .compose-header {
   border-bottom: 2px solid black;
   padding: 16px;
-  background-color: darkgray;
+  background-color: whitesmoke;
 }
 
 .compose-button-container {
@@ -43,7 +48,9 @@
 }
 
 .compose-button-container button {
-  border: 2px solid black;
+  /* border: 1px solid black; */
   background-color: whitesmoke;
-  padding: 18px;
+  padding: 15px;
+  box-shadow: 1px 1px 4px 3px lightgrey;
+  cursor: pointer;
 }
