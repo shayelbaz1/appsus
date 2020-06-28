@@ -1,33 +1,59 @@
 export default {
   template: `
     <section class="home-page flex column align-center">
-        <div class='home-page-header flex'>
-           <h1>Join over a million User who Are already enjyoing Appsus services</h1>
+        
+        <div class="title-box">
+          <h1>AppSus</h1>
+          <p>All your favorite apps in one place</p>
         </div>
 
-        <main class='main-content-container flex'>
-          <div class='about-app-container flex column align-center'>
-            <router-link to='book-app'>
-              <img src='img/books.png'>
-            </router-link>
-            <p>Learn about the history of the world and many more using our book services</p>
+        <main class='apps-box'>
+          <!-- BOOK APP -->
+          <div class='app-box book'>
+            <div class="img-box">
+              <router-link to='book-app'>
+                <img src='../../../img/book500.png'>
+              </router-link>
+            </div>
+            <div class="txt-box">
+                <p>
+                Purchase books from all over the world with out beautiful book app
+                </p>
+            </div>
           </div>
-          <div class='about-app-container flex column align-center'>
-            <router-link to='email/list'>
-              <img src='../../../img/Gmail-Blue-Wallpaper.jpg'>
-            </router-link>
-            <p>Use out top of the line email service system which is packed with features</p>
+                    <!-- GMAIL -->
+          <div class='app-box mail'>
+            <div class="img-box">
+              <router-link to='email/list'>
+                <img src='../../../img/gmail500.png'>
+              </router-link>
+            </div>
+            <div class="txt-box">
+                <p>
+                Top new email service system which is packed with the best features
+                </p>
+            </div>
           </div>
-          <div class='about-app-container flex column align-center'>
-            <router-link to='notes'>
-              <img src='img/keep.png'>
-            </router-link>
-            <p>Create todo lists and remember thing todo with our beautiful note system</p>
+          <!-- NOTES -->
+          <div class='app-box notes'>
+            <div class="img-box">
+              <router-link to='notes'>
+                <img src='../../../img/keep500.png'>
+              </router-link>
+            </div>
+            <div class="txt-box">
+                <p>
+                See our beautiful notes app for saving all kinf of notes
+                </p>
+            </div>
           </div>
+
         </main>
-        
-        <footer class='home-footer flex align-center'>
-          <p>© All right reserved to Shai Elbaz & Shai Isenhower<p>
+
+        <div class="hr-div"></div>
+
+        <footer class='home-footer'>
+          <p>© All right reserved to Shay Elbaz & Shai Isenhower</p>
         </footer>
     </section>    
     `,

@@ -66,8 +66,8 @@ header .router-link-active {
 
 .app {
     margin: 0px 10px;
-    /* color: black; */
-    color: #40bcff;
+    color: black;
+    /* color: #40bcff; */
     text-shadow: 0 0 6px #fffbfb;
     transition: 0.3s;
 }
