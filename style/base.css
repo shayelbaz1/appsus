@@ -39,3 +39,12 @@ header {
 h1 {
     margin: 0;
 }
+
+i {
+    cursor: pointer;
+}
+
+textarea {
+    font-family: 'rubik';
+    font-size: 1.3rem;
+}
