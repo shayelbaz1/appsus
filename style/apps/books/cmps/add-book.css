@@ -1,7 +1,37 @@
-.add-book{
-    background-color: lightgreen;
+.add-book {
+    background-color: #daeaff;
+    /* padding: 10px 0px; */
+    /* background: radial-gradient(circle, #f08080 0%, #daeaff 100%); */
+    /* background: radial-gradient(circle, #f08080 0%, #daeaff 40%); */
 }
 
-.add-book.list{
+.add-book.list {
     display: inline;
+}
+
+/*#region TITLE */
+
+.title-box {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.title-box .page-title {
+    font-family: Lobster;
+    font-size: 3rem;
+    color: white;
+    text-shadow: 0px 0px 5px black;
+    margin-bottom: 0px;
+}
+
+.title-box input {
+    width: 50%;
+}
+
+/*#endregion TITLE */
+
+.add-book .book-txt-box {
+    font-family: 'Rubik', sans-serif;
+    justify-content: left;
+    align-items: flex-start;
 }

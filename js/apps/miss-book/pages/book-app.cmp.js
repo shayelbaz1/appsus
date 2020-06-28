@@ -13,12 +13,12 @@ export default {
           <div class="book-app flex">
           
   
-              <aside >
+              <!-- <aside >
               <div class="logo flex">
                   <i class="fas fa-book-reader"></i>
                   <p>BOOKSTORE</p>
               </div>
-              </aside>
+              </aside> -->
   
               <main class="flex-column">
                   <book-filter @filter="setFilter"></book-filter>

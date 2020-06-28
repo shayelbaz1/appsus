@@ -1,8 +1,8 @@
 /*#region BOOK-FILTER  */
 
 .book-filter {
-    /* background-color: blueviolet; */
     margin-bottom: 20px;
+    display: flex;
 }
 
 /*#endregion BOOK-FILTER  */

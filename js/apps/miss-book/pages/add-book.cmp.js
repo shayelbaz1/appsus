@@ -4,19 +4,21 @@ export default {
   template: `
   
     <section class="add-book">
-      <div class="flex column-layout justify-center">
-          <h1>Add Book </h1>
+      <div class="title-box flex column-layout justify-center">
+          <div class="page-title">Add Book </div>
           <input v-model="searchBook" type="text" placeholder="Search a book"/>
       </div>
 
         <ul class="add-book-list clean-list flex wrap align-center space-around" v-if="googleBooks" >
-        <li class="book-preview flex column-layout justify-center space-between" v-for="book in googleBooks" :key="book.id">
-            <img :src="imgUrl(book)" alt='No Book Picture'/>
-            <br/>
-            Title: {{book.volumeInfo.title}}
-            <br/>
-            <button @click.stop="addBook(book)">Add To My Books</button>
-            </li>
+          <li class="book-preview flex column-layout" v-for="book in googleBooks" :key="book.id">
+              <img :src="imgUrl(book)" alt='No Book Picture'/>
+              
+              <div class="book-txt-box column-layout">
+                <div class="book-title">{{book.volumeInfo.title}}</div>
+                <button @click.stop="addBook(book)">Add To My Books</button>
+              </div>
+              
+          </li>
         </ul>
 
     </section>    

@@ -1,19 +1,25 @@
 export default {
   props: ["book"],
   template: `
-    <li class="book-preview flex column-layout justify-center space-between">
+    <li class="book-preview flex column-layout">
         <img :src="imgUrl" alt=""/>
-        <br/>
-        Title: {{titleToShow}}
-        <br/>
-        Price: {{book.listPrice.amount}} {{currencyCode}}
-        <router-link :to="'/book/'+book.id"><Button>Details</Button></router-link>
+        
+        <div class="book-txt-box">
+          <div class="book-title">{{titleToShow}}</div>
+          <div class="book-price">{{book.listPrice.amount}} {{currencyCode}}</div>
+        </div>
+        <!-- <router-link :to="'/book/'+book.id"><Button>Details</Button></router-link> -->
     </li>
     `,
   computed: {
     titleToShow() {
-      const title = this.book.title;
-      return title.charAt(0).toUpperCase() + title.slice(1);
+      let title = this.book.title;
+      let words = title.split(' ')
+      title = words.map(word => {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      }).join(' ')
+      
+      return title
     },
     imgUrl() {
       return this.book.thumbnail;

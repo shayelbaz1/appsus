@@ -1,5 +1,6 @@
 .book-app {
     min-height: 100vh;
+    background-color: #daeaff;
 }
 
 aside {
@@ -26,5 +27,5 @@ p {
 }
 
 main {
-    width: 80vw;
+    width: 100%;
 }
